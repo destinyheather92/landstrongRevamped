@@ -1,0 +1,92 @@
+.visual-panel {
+  position: relative;
+  aspect-ratio: 4 / 3.4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  box-shadow: var(--shadow-soft);
+}
+
+.visual-panel--terracotta {
+  background: linear-gradient(155deg, #f6e2d3 0%, #f3e6d6 60%);
+  --panel-blob-1: var(--color-terracotta-light);
+  --panel-blob-2: var(--color-rose);
+}
+
+.visual-panel--sage {
+  background: linear-gradient(155deg, #e9ede2 0%, #f3e6d6 60%);
+  --panel-blob-1: var(--color-sage-light);
+  --panel-blob-2: var(--color-gold);
+}
+
+.visual-panel--gold {
+  background: linear-gradient(155deg, #f7e9cc 0%, #f3e6d6 60%);
+  --panel-blob-1: var(--color-gold);
+  --panel-blob-2: var(--color-terracotta-light);
+}
+
+.visual-panel--plum {
+  background: linear-gradient(155deg, #ecd9e4 0%, #f3e6d6 60%);
+  --panel-blob-1: var(--color-plum);
+  --panel-blob-2: var(--color-rose);
+}
+
+.visual-panel__blob {
+  transform: scale(1.4);
+}
+
+.visual-panel__blob--1 {
+  top: -20%;
+  left: -15%;
+  opacity: 0.55;
+}
+
+.visual-panel__blob--2 {
+  bottom: -25%;
+  right: -20%;
+  opacity: 0.45;
+  transform: scale(1.2) rotate(35deg);
+}
+
+.visual-panel__dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(58, 43, 57, 0.16) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(circle at 30% 30%, black, transparent 65%);
+  z-index: 0;
+}
+
+.visual-panel__icon {
+  position: relative;
+  z-index: 1;
+  width: clamp(4.5rem, 12vw, 6.5rem);
+  height: clamp(4.5rem, 12vw, 6.5rem);
+  border-radius: 50%;
+  background: rgba(255, 253, 249, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-terracotta-dark);
+  backdrop-filter: blur(2px);
+}
+
+.visual-panel__icon svg {
+  width: 55%;
+  height: 55%;
+}
+
+.visual-panel__label {
+  position: absolute;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  right: var(--space-md);
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: var(--fs-500);
+  font-weight: 600;
+  color: var(--color-ink);
+}

@@ -1,0 +1,32 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  /*
+    Text is always the near-black ink color rather than a "-dark" tint of
+    each hue: at this small size, the tinted variants (e.g. terracotta-dark
+    on terracotta-light) fall short of WCAG AA (~3:1) — ink on any of these
+    pastel backgrounds clears 7:1+.
+  */
+  color: var(--color-ink);
+}
+
+.badge--terracotta {
+  background: var(--color-terracotta-light);
+}
+
+.badge--sage {
+  background: var(--color-sage-light);
+}
+
+.badge--gold {
+  background: #f3d99b;
+}
+
+.badge--plum {
+  background: #e8d3e1;
+}

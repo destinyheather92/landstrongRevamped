@@ -1,0 +1,7 @@
+.divider {
+  display: block;
+  width: 100%;
+  height: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0;
+  margin-block: -1px;
+}

@@ -1,0 +1,56 @@
+.quote-block {
+  margin: 0;
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  box-shadow: var(--shadow-soft);
+  height: 100%;
+}
+
+.quote-block__mark {
+  position: absolute;
+  top: 0.25rem;
+  left: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--color-terracotta-light);
+  line-height: 1;
+  user-select: none;
+}
+
+.quote-block__text {
+  margin: 0;
+}
+
+.quote-block--md .quote-block__text p {
+  font-size: 1.1rem;
+  line-height: var(--lh-normal);
+  font-style: italic;
+  color: var(--color-text);
+}
+
+.quote-block--lg .quote-block__text p {
+  font-family: var(--font-display);
+  font-size: var(--fs-700);
+  font-style: normal;
+  line-height: var(--lh-snug);
+  color: var(--color-text);
+}
+
+.quote-block__caption {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-md);
+  gap: 0.15rem;
+}
+
+.quote-block__name {
+  font-weight: 800;
+  color: var(--color-terracotta-dark);
+}
+
+.quote-block__detail {
+  font-size: var(--fs-300);
+  color: var(--color-text-soft);
+}

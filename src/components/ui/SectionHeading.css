@@ -1,0 +1,23 @@
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  max-width: 42rem;
+}
+
+.section-heading--center {
+  margin-inline: auto;
+  text-align: center;
+  align-items: center;
+}
+
+.section-heading__title {
+  font-size: var(--fs-800);
+}
+
+.section-heading__subtitle {
+  font-size: var(--fs-500);
+  color: var(--color-text-soft);
+  line-height: var(--lh-normal);
+}

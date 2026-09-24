@@ -1,0 +1,71 @@
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-ink);
+  color: var(--color-cream);
+  padding-block: var(--space-2xl);
+}
+
+.cta-banner__decor {
+  position: absolute;
+  inset: 0;
+  color: var(--color-gold);
+  opacity: 0.5;
+}
+
+.cta-banner__decor svg {
+  position: absolute;
+  top: -3rem;
+  right: -2rem;
+  width: 14rem;
+  height: 14rem;
+}
+
+.cta-banner__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+}
+
+.cta-banner__eyebrow {
+  color: var(--color-gold);
+}
+
+.cta-banner__title {
+  color: var(--color-cream);
+  margin-top: var(--space-sm);
+}
+
+.cta-banner__subtitle {
+  margin-top: var(--space-md);
+  font-size: var(--fs-500);
+  color: rgba(251, 243, 234, 0.82);
+  line-height: var(--lh-normal);
+}
+
+.cta-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.cta-banner .btn--secondary {
+  color: var(--color-cream);
+  border-color: var(--color-cream);
+}
+
+.cta-banner .btn--secondary:hover {
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+.cta-banner .btn--ghost {
+  background: transparent;
+  border-color: rgba(251, 243, 234, 0.5);
+  color: var(--color-cream);
+}
+
+.cta-banner .btn--ghost:hover {
+  background: rgba(251, 243, 234, 0.12);
+}
