@@ -1,19 +1,20 @@
 import usePageMeta from "../hooks/usePageMeta";
 import SectionHeading from "../components/ui/SectionHeading";
 import ContentSection from "../components/ui/ContentSection";
-import VisualPanel from "../components/ui/VisualPanel";
+import PhotoPanel from "../components/ui/PhotoPanel";
 import QuoteBlock from "../components/ui/QuoteBlock";
 import Badge from "../components/ui/Badge";
 import CTASection from "../components/ui/CTASection";
 import Divider from "../components/ui/Divider";
 import { Icon } from "../components/icons/DecorativeIcons";
+import julie from "../assets/julie.webp";
 import { businessInfo, founderCredentials, founderStory, siteMeta, valuePillars } from "../data/siteContent";
 import "./About.css";
 
 export default function About() {
   usePageMeta(
     "About",
-    "Meet Julie Landers, founder of LandStrong Coaching & Consulting — her story, credentials, and the philosophy behind the work."
+    "I'm Julie Landers, founder of LandStrong Coaching & Consulting — this is my story, credentials, and the philosophy behind the work."
   );
 
   return (
@@ -34,7 +35,13 @@ export default function About() {
           <ContentSection
             eyebrow="Founder & Coach"
             title={founderStory.heading}
-            media={<VisualPanel icon="leaf" tone="sage" label={`${siteMeta.founder}`} />}
+            media={
+              <PhotoPanel
+                src={julie}
+                alt={`${siteMeta.founder}, founder of LandStrong Coaching & Consulting`}
+                label={siteMeta.founder}
+              />
+            }
           >
             {founderStory.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
@@ -58,7 +65,7 @@ export default function About() {
             align="center"
             eyebrow="Background"
             title="Years in the room with people under real pressure"
-            subtitle="Schools. Private practice. The correctional system. Different rooms, the same pattern: stress and a dysregulated nervous system quietly running the show — no matter how capable the person in front of her was."
+            subtitle="Schools. Private practice. The correctional system. Different rooms, the same pattern: stress and a dysregulated nervous system quietly running the show — no matter how capable the person in front of me was."
           />
           <div className="about-quote">
             <QuoteBlock
@@ -99,7 +106,7 @@ export default function About() {
           <SectionHeading
             eyebrow="The vision"
             title="Safety across the mind, body, and spirit — then growth."
-            subtitle="Julie's vision for LandStrong centers on creating real safety across every dimension of a woman's life: mental, physical, and spiritual. Because lasting change only happens when you feel safe, understood, and accepted first — not managed, fixed, or rushed."
+            subtitle="My vision for LandStrong centers on creating real safety across every dimension of a woman's life: mental, physical, and spiritual. Because lasting change only happens when you feel safe, understood, and accepted first — not managed, fixed, or rushed."
           />
         </div>
       </section>

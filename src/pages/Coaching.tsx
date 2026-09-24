@@ -25,7 +25,7 @@ export default function Coaching() {
           <p className="eyebrow">Coaching</p>
           <h1>This isn't a productivity hack. It's a way back to yourself.</h1>
           <p className="coaching-hero__lede max-prose">
-            Two ways to work with Julie directly — one-on-one, or alongside a small group of women doing the same
+            Two ways to work with me directly — one-on-one, or alongside a small group of women doing the same
             deep work. Both are grounded in nervous-system science and built around your actual life, not a rigid
             program.
           </p>

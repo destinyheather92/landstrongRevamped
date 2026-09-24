@@ -147,12 +147,12 @@ export const founderCredentials = [
 ];
 
 export const founderStory = {
-  heading: "Julie has lived it — not just studied it.",
+  heading: "I've lived it — not just studied it.",
   paragraphs: [
-    "Julie Landers spent years working across schools, private practice, and the correctional system, watching the same pattern show up in every room: stress and a dysregulated nervous system quietly running the show, no matter how capable or accomplished the person in front of her was.",
-    "Then life stopped being theoretical. During graduate school, Julie experienced profound grief while supporting both of her parents through cancer diagnoses — all at once. Everything she'd studied about mindfulness and resilience got tested in real time.",
-    "“The skills I lived and taught did not remove the pain,” she says. “They allowed me to stay present inside it.”",
-    "That distinction became the foundation of LandStrong. Julie isn't in the business of helping women avoid hard things — she's in the business of building the kind of inner steadiness that lets you meet the storm with clarity, resilience, and something that finally feels like you again.",
+    "I spent years working across schools, private practice, and the correctional system, watching the same pattern show up in every room: stress and a dysregulated nervous system quietly running the show, no matter how capable or accomplished the person in front of me was.",
+    "Then life stopped being theoretical. During graduate school, I experienced profound grief while supporting both of my parents through cancer diagnoses — all at once. Everything I'd studied about mindfulness and resilience got tested in real time.",
+    "“The skills I lived and taught did not remove the pain,” I say. “They allowed me to stay present inside it.”",
+    "That distinction became the foundation of LandStrong. I'm not in the business of helping women avoid hard things — I'm in the business of building the kind of inner steadiness that lets you meet the storm with clarity, resilience, and something that finally feels like you again.",
   ],
 };
 
@@ -215,7 +215,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Is this therapy or is this coaching?",
     answer:
-      "LandStrong offers coaching and consulting, not clinical therapy. Coaching is forward-focused and skills-based — it's a wonderful complement to therapy, and many clients do both. If clinical counseling is a better fit for what you're navigating, Julie can point you toward that option.",
+      "LandStrong offers coaching and consulting, not clinical therapy. Coaching is forward-focused and skills-based — it's a wonderful complement to therapy, and many clients do both. If clinical counseling is a better fit for what you're navigating, I can point you toward that option.",
   },
   {
     question: "How do I know if I need coaching or a group journey?",
@@ -271,7 +271,7 @@ export const resourceArticles: ResourceArticle[] = [
   {
     title: "What to Expect from Your First Coaching Consultation",
     excerpt:
-      "No worksheets, no pressure, no being told to meditate more. Here's exactly what happens in a free consultation call with Julie.",
+      "No worksheets, no pressure, no being told to meditate more. Here's exactly what happens in a free consultation call with me.",
     readTime: "3 min read",
     tag: "Getting Started",
   },

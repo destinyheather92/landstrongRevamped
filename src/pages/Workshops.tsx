@@ -24,7 +24,7 @@ export default function Workshops() {
           <h1>A few hours that reset how your whole group carries stress.</h1>
           <p className="workshops-hero__lede max-prose">
             For teams, communities, and groups of women who are done with wellness trainings that feel like a
-            lecture. Julie brings the science, the honesty, and yes — a little bit of fun.
+            lecture. I bring the science, the honesty, and yes — a little bit of fun.
           </p>
           <div className="workshops-hero__actions">
             <Badge tone="gold">4-hour immersive format</Badge>

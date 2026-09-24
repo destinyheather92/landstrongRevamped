@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { navLinks, businessInfo, siteMeta } from "../../data/siteContent";
 import Button from "../ui/Button";
+import logo from "../../assets/logo.png";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -35,19 +36,7 @@ export default function Navbar() {
       <header className="navbar">
         <div className="container navbar__inner">
           <NavLink to="/" className="navbar__brand" aria-label={`${siteMeta.name} — home`}>
-            <svg viewBox="0 0 48 48" className="navbar__mark" aria-hidden="true">
-              <path
-                d="M24 6c9 8 13 16 13 23a13 13 0 1 1-26 0c0-7 4-15 13-23Z"
-                fill="var(--color-terracotta)"
-              />
-              <path
-                d="M24 18c5 5 7 9.5 7 13.2A7 7 0 1 1 17 31.2c0-3.7 2-8.2 7-13.2Z"
-                fill="var(--color-cream)"
-              />
-            </svg>
-            <span className="navbar__wordmark">
-              Land<span className="navbar__wordmark-accent">Strong</span>
-            </span>
+            <img src={logo} alt={siteMeta.name} className="navbar__logo" />
           </NavLink>
 
           <nav className="navbar__nav navbar__nav--desktop" aria-label="Primary">

@@ -5,10 +5,13 @@ import ServiceCard from "../components/ui/ServiceCard";
 import QuoteBlock from "../components/ui/QuoteBlock";
 import ContentSection from "../components/ui/ContentSection";
 import VisualPanel from "../components/ui/VisualPanel";
+import HeroVideo from "../components/ui/HeroVideo";
 import CTASection from "../components/ui/CTASection";
 import Divider from "../components/ui/Divider";
 import Badge from "../components/ui/Badge";
 import { Icon } from "../components/icons/DecorativeIcons";
+import heroVideo from "../assets/herointro.mp4";
+import heroVideoPoster from "../assets/julie.webp";
 import {
   businessInfo,
   founderCredentials,
@@ -53,7 +56,7 @@ export default function Home() {
                 Book a Free Consultation
               </Button>
               <Button to="/about" variant="secondary" size="lg">
-                Meet Julie
+                Meet Me
               </Button>
             </div>
             <ul className="hero__credentials" aria-label="Founder credentials">
@@ -65,13 +68,11 @@ export default function Home() {
             </ul>
           </div>
           <div className="hero__media">
-            <VisualPanel icon="sun" tone="terracotta" pattern="dots" />
-            <div className="hero__media-note">
-              <Icon name="heart" className="hero__media-note-icon" />
-              <p>
-                <strong>Do less.</strong> Feel better. Live steady.
-              </p>
-            </div>
+            <HeroVideo
+              src={heroVideo}
+              poster={heroVideoPoster}
+              label="Me, unscripted — hit play."
+            />
           </div>
         </div>
       </section>
@@ -150,22 +151,22 @@ export default function Home() {
         <div className="container">
           <ContentSection
             eyebrow="Who's behind LandStrong"
-            title="Julie has lived it — not just studied it."
+            title="I've lived it — not just studied it."
             media={<VisualPanel icon="leaf" tone="sage" label="Julie Landers, Founder" />}
           >
             <p>
-              Julie Landers spent years across schools, private practice, and the correctional system watching one
-              pattern repeat: stress and a dysregulated nervous system quietly running the show, no matter how
-              capable the person in the room was.
+              I spent years across schools, private practice, and the correctional system watching one pattern
+              repeat: stress and a dysregulated nervous system quietly running the show, no matter how capable the
+              person in the room was.
             </p>
             <p>
-              Then it got personal. Supporting both of her parents through cancer while grieving in graduate school
-              taught her something her textbooks couldn't: <strong>“The skills I lived and taught did not remove the
+              Then it got personal. Supporting both of my parents through cancer while grieving in graduate school
+              taught me something my textbooks couldn't: <strong>“The skills I lived and taught did not remove the
               pain. They allowed me to stay present inside it.”</strong>
             </p>
             <div>
               <Button to="/about" variant="secondary">
-                Read Julie's full story
+                Read my full story
               </Button>
             </div>
           </ContentSection>
