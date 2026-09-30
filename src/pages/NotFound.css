@@ -13,8 +13,8 @@
   margin-inline: auto;
   margin-bottom: var(--space-md);
   border-radius: 50%;
-  background: var(--color-cream-dark);
-  color: var(--color-terracotta-dark);
+  background: var(--icon-bg);
+  color: var(--icon);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +32,7 @@
 
 .not-found__lede {
   margin: var(--space-md) auto 0;
-  color: var(--color-text-soft);
+  color: var(--muted-text);
   font-size: var(--fs-500);
 }
 

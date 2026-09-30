@@ -17,8 +17,8 @@ interface HeroVideoProps {
 export default function HeroVideo({ src, poster, aspectRatio = "1 / 1", label }: HeroVideoProps) {
   return (
     <div className="hero-video-wrap">
-      <Blob color="var(--color-terracotta-light)" className="hero-video__blob hero-video__blob--1" />
-      <Blob color="var(--color-gold)" className="hero-video__blob hero-video__blob--2" />
+      <Blob color="var(--decor-primary)" className="hero-video__blob hero-video__blob--1" />
+      <Blob color="var(--decor-secondary)" className="hero-video__blob hero-video__blob--2" />
       <div className="hero-video" style={{ aspectRatio }}>
         <video className="hero-video__el" controls preload="none" poster={poster} playsInline>
           <source src={src} type="video/mp4" />

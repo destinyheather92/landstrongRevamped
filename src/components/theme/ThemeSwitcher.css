@@ -1,0 +1,138 @@
+/*
+  TEMPORARY theme-preview bar. Deliberately neutral — grayscale, system font
+  and hard-coded colors instead of theme tokens — so it reads as a review
+  tool and doesn't tint the palettes being compared.
+*/
+:root {
+  /* Navbar.css offsets its sticky position by this (0 when the bar is gone) */
+  --theme-bar-height: 2.75rem;
+}
+
+:root[data-theme-switching] *,
+:root[data-theme-switching] *::before,
+:root[data-theme-switching] *::after {
+  transition: none !important;
+}
+
+.theme-switcher {
+  position: sticky;
+  top: 0;
+  z-index: 110;
+  height: var(--theme-bar-height);
+  background: #ffffff;
+  border-bottom: 1px solid #e4e4e7;
+  color: #18181b;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1;
+}
+
+.theme-switcher__inner {
+  height: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: clamp(0.5rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.theme-switcher__label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #71717a;
+  white-space: nowrap;
+}
+
+.theme-switcher__options {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.1875rem;
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  border-radius: 999px;
+}
+
+.theme-switcher__option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 1.875rem;
+  padding: 0 0.875rem 0 0.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #52525b;
+  font: inherit;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.theme-switcher__option:hover {
+  background: #e4e4e7;
+  color: #18181b;
+}
+
+.theme-switcher__option--active,
+.theme-switcher__option--active:hover {
+  background: #18181b;
+  color: #ffffff;
+  cursor: default;
+}
+
+/* Beats the global :focus-visible rule, which squares off the corners */
+.theme-switcher .theme-switcher__option:focus-visible {
+  outline: 2px solid #18181b;
+  outline-offset: 2px;
+  border-radius: 999px;
+}
+
+.theme-switcher__swatches {
+  display: inline-flex;
+}
+
+.theme-switcher__swatches span {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.9);
+}
+
+.theme-switcher__swatches span + span {
+  margin-left: -0.2rem;
+}
+
+@media (max-width: 720px) {
+  .theme-switcher__inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .theme-switcher__label {
+    display: none;
+  }
+
+  /* Still announced by screen readers, just not shown */
+  .theme-switcher__number {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-switcher__swatches {
+    display: none;
+  }
+
+  .theme-switcher__option {
+    padding-inline: 0.8rem;
+  }
+}

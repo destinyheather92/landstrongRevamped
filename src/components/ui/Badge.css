@@ -10,23 +10,23 @@
     Text is always the near-black ink color rather than a "-dark" tint of
     each hue: at this small size, the tinted variants (e.g. terracotta-dark
     on terracotta-light) fall short of WCAG AA (~3:1) — ink on any of these
-    pastel backgrounds clears 7:1+.
+    pastel backgrounds clears 7:1+. Themes keep --badge-text near-black too.
   */
-  color: var(--color-ink);
+  color: var(--badge-text);
 }
 
 .badge--terracotta {
-  background: var(--color-terracotta-light);
+  background: var(--badge-terracotta);
 }
 
 .badge--sage {
-  background: var(--color-sage-light);
+  background: var(--badge-sage);
 }
 
 .badge--gold {
-  background: #f3d99b;
+  background: var(--badge-gold);
 }
 
 .badge--plum {
-  background: #e8d3e1;
+  background: var(--badge-plum);
 }

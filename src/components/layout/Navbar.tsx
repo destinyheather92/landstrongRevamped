@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { navLinks, businessInfo, siteMeta } from "../../data/siteContent";
 import Button from "../ui/Button";
-import logo from "../../assets/logo.png";
+import BrandLogo from "../ui/BrandLogo";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -36,7 +36,7 @@ export default function Navbar() {
       <header className="navbar">
         <div className="container navbar__inner">
           <NavLink to="/" className="navbar__brand" aria-label={`${siteMeta.name} — home`}>
-            <img src={logo} alt={siteMeta.name} className="navbar__logo" />
+            <BrandLogo label={siteMeta.name} className="navbar__logo" />
           </NavLink>
 
           <nav className="navbar__nav navbar__nav--desktop" aria-label="Primary">

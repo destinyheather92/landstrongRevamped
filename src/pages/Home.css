@@ -1,5 +1,6 @@
 /* ---------- Hero ---------- */
 .hero {
+  background: var(--hero-bg);
   padding-top: clamp(2.5rem, 6vw, 4.5rem);
   padding-bottom: var(--space-xl);
 }
@@ -17,13 +18,13 @@
 }
 
 .hero__title-accent {
-  color: var(--color-terracotta);
+  color: var(--hero-accent);
 }
 
 .hero__subtitle {
   margin-top: var(--space-lg);
   font-size: var(--fs-500);
-  color: var(--color-text-soft);
+  color: var(--muted-text);
   line-height: var(--lh-normal);
   max-width: 42ch;
 }
@@ -73,10 +74,10 @@
   display: flex;
   align-items: flex-start;
   gap: 0.65rem;
-  background: var(--color-surface);
+  background: var(--surface);
   padding: 0.9rem 1.1rem;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-inset);
+  box-shadow: var(--card-ring), var(--shadow-inset);
   font-weight: 600;
 }
 
@@ -86,14 +87,14 @@
   height: 0.6rem;
   margin-top: 0.4rem;
   border-radius: 50%;
-  background: var(--color-terracotta);
+  background: var(--marker);
 }
 
 .relatable__note {
   margin-top: var(--space-xl);
   margin-inline: auto;
   font-size: var(--fs-500);
-  color: var(--color-text-soft);
+  color: var(--muted-text);
   line-height: var(--lh-normal);
 }
 
@@ -127,8 +128,8 @@
   text-align: center;
   padding: var(--space-lg) var(--space-md);
   border-radius: var(--radius-lg);
-  background: rgba(251, 243, 234, 0.06);
-  border: 1px solid rgba(251, 243, 234, 0.12);
+  background: var(--section-contrast-card);
+  border: 1px solid var(--section-contrast-card-border);
 }
 
 .pillar-card__icon {
@@ -137,8 +138,8 @@
   margin-inline: auto;
   margin-bottom: var(--space-md);
   border-radius: 50%;
-  background: rgba(217, 164, 65, 0.16);
-  color: var(--color-gold);
+  background: var(--section-contrast-icon-bg);
+  color: var(--section-contrast-icon);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -155,7 +156,7 @@
 }
 
 .pillar-card p {
-  color: rgba(251, 243, 234, 0.75);
+  color: var(--section-contrast-muted);
   font-size: 0.95rem;
   line-height: var(--lh-normal);
 }

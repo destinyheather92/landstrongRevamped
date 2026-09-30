@@ -57,7 +57,7 @@ export default function About() {
         </div>
       </section>
 
-      <Divider color="var(--color-cream-dark)" />
+      <Divider color="var(--section-alt)" />
 
       <section className="section section--alt">
         <div className="container">

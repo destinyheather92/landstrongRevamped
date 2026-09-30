@@ -36,7 +36,7 @@ export default function Resources() {
         </div>
       </section>
 
-      <Divider color="var(--color-cream-dark)" />
+      <Divider color="var(--section-alt)" />
 
       <section className="section resources-grid-section">
         <div className="container">
@@ -63,7 +63,7 @@ export default function Resources() {
         </div>
       </section>
 
-      <Divider color="var(--color-ink)" />
+      <Divider color="var(--section-contrast)" />
 
       <section className="section section--ink grounding-section">
         <div className="container grounding-section__inner">
@@ -85,7 +85,7 @@ export default function Resources() {
         </div>
       </section>
 
-      <Divider color="var(--color-cream)" flip />
+      <Divider color="var(--background)" flip />
 
       <section className="section section--alt">
         <div className="container">

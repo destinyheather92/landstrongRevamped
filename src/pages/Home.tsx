@@ -77,7 +77,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Divider color="var(--color-cream-dark)" />
+      <Divider color="var(--section-alt)" />
 
       {/* ---------- Relatable pain points ---------- */}
       <section className="section section--alt relatable">
@@ -119,7 +119,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Divider color="var(--color-ink)" />
+      <Divider color="var(--section-contrast)" />
 
       {/* ---------- Philosophy / value pillars ---------- */}
       <section className="section--ink section pillars-section">
@@ -144,7 +144,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Divider color="var(--color-cream)" flip />
+      <Divider color="var(--background)" flip />
 
       {/* ---------- Founder teaser ---------- */}
       <section className="section">

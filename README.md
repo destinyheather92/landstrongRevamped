@@ -55,6 +55,22 @@ Key values you'll likely need to update over time:
 
 Colors, type scale, spacing, radii, shadows, and motion durations are all CSS custom
 properties in `src/styles/tokens.css`. Change a token there and it updates everywhere.
+Components only use the semantic color tokens (`--background`, `--primary`,
+`--button-primary`, `--footer-bg`, …), never raw palette values.
+
+#### Temporary: color theme comparison
+
+A neutral bar above the navbar switches the whole site between two candidate
+palettes — **Theme 1 — Dreamy Princess** and **Theme 2 — Earthy Feminine** — defined in
+`src/styles/themes.css`. Only colors change; layout, copy and imagery stay identical.
+Add `?theme=dreamy` or `?theme=earthy` to any URL to open a specific palette.
+
+- **Adopt a palette:** copy its block's declarations from `themes.css` into the
+  theme-token section of `tokens.css`, then remove the comparison (below).
+- **Remove the comparison:** delete `<ThemeSwitcher />` from
+  `src/components/layout/Layout.tsx`, the `src/components/theme/` folder,
+  `src/styles/themes.css` and its `@import` in `global.css`. With no theme applied, the
+  site renders its current styling.
 
 There is no photography in this build — in its place, `VisualPanel` and `Blob`
 render warm, layered organic shapes as a stand-in for photos. Swap a `VisualPanel`

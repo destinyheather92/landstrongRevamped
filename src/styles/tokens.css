@@ -30,15 +30,159 @@
   --color-plum: #6b3f5e;
   --color-plum-dark: #522f48;
 
-  /* ---- Semantic ---- */
-  --color-bg: var(--color-cream);
-  --color-bg-alt: var(--color-cream-dark);
-  --color-surface: var(--color-white);
-  --color-text: var(--color-ink);
-  --color-text-soft: var(--color-ink-soft);
-  --color-text-on-dark: var(--color-cream);
-  --color-border: rgba(58, 43, 57, 0.12);
-  --color-focus: #7c8b6f;
+  /*
+    =========================================================================
+    Theme tokens
+    Components color themselves ONLY through the tokens below — never the
+    raw palette above. These values are the current LandStrong look and are
+    what renders when no [data-theme] is set on <html>. Alternate palettes in
+    themes.css re-map these same names; to adopt one permanently, copy its
+    values into this block.
+    =========================================================================
+  */
+
+  /* ---- Brand roles ---- */
+  --primary: var(--color-terracotta-dark);
+  --primary-hover: var(--color-terracotta-deep);
+  --on-primary: var(--color-white);
+  --secondary: var(--color-sage);
+  --accent: var(--color-terracotta);
+
+  /* ---- Page + surfaces ---- */
+  --background: var(--color-cream);
+  --surface: var(--color-white);
+  --section-alt: var(--color-cream-dark); /* solid — also fills the wave dividers */
+  --section-alt-bg: var(--section-alt); /* may be a gradient, but must start at --section-alt */
+  --hero-bg: transparent; /* must fade to --background along its bottom edge */
+  --border: rgba(58, 43, 57, 0.12);
+  --card-border: transparent; /* drawn as a box-shadow ring, so it never affects layout */
+  --shadow-rgb: 58 43 57;
+
+  /* ---- Text ---- */
+  --text: var(--color-ink);
+  --heading: var(--color-ink);
+  --muted-text: var(--color-ink-soft);
+  --eyebrow: var(--primary);
+  --hero-accent: var(--accent);
+  --link: var(--primary);
+  --link-hover: var(--primary);
+  --selection-bg: var(--color-gold);
+  --selection-text: var(--color-ink);
+  --focus-ring: #7c8b6f;
+
+  /* ---- Icons + decoration ---- */
+  --icon: var(--primary);
+  --icon-bg: var(--color-cream-dark);
+  --marker: var(--accent); /* round dots beside short list items */
+  --bullet: var(--secondary);
+  --quote-mark: var(--color-terracotta-light);
+  --decor-primary: var(--color-terracotta-light);
+  --decor-secondary: var(--color-gold);
+  --media-bg: var(--color-ink);
+  --media-text: var(--color-cream);
+
+  /* ---- Navigation ---- */
+  --nav-bg: rgba(251, 243, 234, 0.92);
+  --nav-border: var(--border);
+  --nav-link: var(--muted-text);
+  --nav-link-hover: var(--text);
+  --nav-link-active: var(--primary);
+  --nav-indicator: var(--accent);
+  --nav-icon: var(--color-ink);
+  --mobile-nav-bg: var(--color-cream);
+  --logo-primary: var(--color-ink); /* "LAND" */
+  --logo-accent: var(--color-terracotta); /* "STRONG" + rules */
+
+  /* ---- Buttons ---- */
+  --button-primary: var(--primary);
+  --button-primary-hover: var(--primary-hover);
+  --button-primary-text: var(--on-primary);
+  --button-secondary: transparent;
+  --button-secondary-text: var(--color-ink);
+  --button-secondary-border: var(--color-ink);
+  --button-secondary-hover: var(--color-ink);
+  --button-secondary-hover-text: var(--color-cream);
+  --button-secondary-hover-border: var(--color-ink);
+  --button-ghost: rgba(255, 253, 249, 0.6);
+  --button-ghost-text: var(--color-ink);
+  --button-ghost-border: rgba(58, 43, 57, 0.18);
+  --button-ghost-hover: var(--color-white);
+
+  /* ---- Badges (tone names are the component's slot names) ---- */
+  --badge-text: var(--color-ink);
+  --badge-terracotta: var(--color-terracotta-light);
+  --badge-sage: var(--color-sage-light);
+  --badge-gold: #f3d99b;
+  --badge-plum: #e8d3e1;
+
+  /* ---- Illustrated panels (VisualPanel tones) ---- */
+  --panel-base: var(--color-cream-dark);
+  --panel-terracotta-wash: #f6e2d3;
+  --panel-terracotta-blob-1: var(--color-terracotta-light);
+  --panel-terracotta-blob-2: var(--color-rose);
+  --panel-sage-wash: #e9ede2;
+  --panel-sage-blob-1: var(--color-sage-light);
+  --panel-sage-blob-2: var(--color-gold);
+  --panel-gold-wash: #f7e9cc;
+  --panel-gold-blob-1: var(--color-gold);
+  --panel-gold-blob-2: var(--color-terracotta-light);
+  --panel-plum-wash: #ecd9e4;
+  --panel-plum-blob-1: var(--color-plum);
+  --panel-plum-blob-2: var(--color-rose);
+  --panel-dots: rgba(58, 43, 57, 0.16);
+  --panel-icon-bg: rgba(255, 253, 249, 0.75);
+
+  /* ---- Contrast sections (.section--ink) ---- */
+  --section-contrast: var(--color-ink);
+  --section-contrast-heading: var(--color-cream);
+  --section-contrast-text: var(--color-cream);
+  --section-contrast-text-soft: rgba(251, 243, 234, 0.85);
+  --section-contrast-muted: rgba(251, 243, 234, 0.75);
+  --section-contrast-subtle: rgba(251, 243, 234, 0.65);
+  --section-contrast-eyebrow: var(--eyebrow);
+  --section-contrast-subtitle: var(--muted-text);
+  --section-contrast-card: rgba(251, 243, 234, 0.06);
+  --section-contrast-card-border: rgba(251, 243, 234, 0.12);
+  --section-contrast-icon: var(--color-gold);
+  --section-contrast-icon-bg: rgba(217, 164, 65, 0.16);
+  --step-number: var(--color-terracotta);
+  --step-number-text: var(--color-white);
+
+  /* ---- Forms ---- */
+  --input-bg: var(--color-cream);
+  --input-border: var(--border);
+  --input-focus: var(--accent);
+  --success-text: var(--color-sage-dark);
+
+  /* ---- Closing call-to-action banner ---- */
+  --cta-bg: var(--color-ink); /* solid color */
+  --cta-glow: none; /* optional image layer painted over --cta-bg */
+  --cta-heading: var(--color-cream);
+  --cta-text: var(--color-cream);
+  --cta-text-muted: rgba(251, 243, 234, 0.82);
+  --cta-eyebrow: var(--eyebrow); /* the current site shows the standard eyebrow color here */
+  --cta-decor: var(--color-gold);
+  --cta-button: var(--button-primary);
+  --cta-button-hover: var(--button-primary-hover);
+  --cta-button-text: var(--button-primary-text);
+  --cta-ghost-text: var(--color-cream);
+  --cta-ghost-border: rgba(251, 243, 234, 0.5);
+  --cta-ghost-hover: rgba(251, 243, 234, 0.12);
+
+  /* ---- Footer ---- */
+  --footer-bg: var(--color-ink);
+  --footer-text: rgba(251, 243, 234, 0.85);
+  --footer-text-muted: rgba(251, 243, 234, 0.7);
+  --footer-text-subtle: rgba(251, 243, 234, 0.6);
+  --footer-heading: var(--color-gold);
+  --footer-link-hover: var(--color-terracotta-light);
+  --footer-border: rgba(251, 243, 234, 0.14);
+  --footer-icon: var(--color-cream);
+  --footer-icon-bg: rgba(251, 243, 234, 0.1);
+  --footer-icon-hover: var(--color-cream);
+  --footer-icon-hover-bg: var(--color-terracotta);
+  --footer-logo-primary: #ffffff;
+  --footer-logo-accent: #ffffff;
 
   /* ---- Typography ---- */
   --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
@@ -78,9 +222,10 @@
   --radius-blob: 62% 38% 55% 45% / 45% 55% 45% 55%;
 
   /* ---- Shadow ---- */
-  --shadow-soft: 0 12px 32px -16px rgba(58, 43, 57, 0.28);
-  --shadow-lift: 0 22px 48px -20px rgba(58, 43, 57, 0.35);
-  --shadow-inset: inset 0 0 0 1px rgba(58, 43, 57, 0.08);
+  --shadow-soft: 0 12px 32px -16px rgb(var(--shadow-rgb) / 0.28);
+  --shadow-lift: 0 22px 48px -20px rgb(var(--shadow-rgb) / 0.35);
+  --shadow-inset: inset 0 0 0 1px rgb(var(--shadow-rgb) / 0.08);
+  --card-ring: 0 0 0 1px var(--card-border);
 
   /* ---- Motion ---- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);

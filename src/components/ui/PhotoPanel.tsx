@@ -17,8 +17,8 @@ interface PhotoPanelProps {
 export default function PhotoPanel({ src, alt, label, aspectRatio = "4 / 5" }: PhotoPanelProps) {
   return (
     <div className="photo-panel-wrap">
-      <Blob color="var(--color-terracotta-light)" className="photo-panel__blob photo-panel__blob--1" />
-      <Blob color="var(--color-gold)" className="photo-panel__blob photo-panel__blob--2" />
+      <Blob color="var(--decor-primary)" className="photo-panel__blob photo-panel__blob--1" />
+      <Blob color="var(--decor-secondary)" className="photo-panel__blob photo-panel__blob--2" />
       <div className="photo-panel" style={{ aspectRatio }}>
         <img src={src} alt={alt} className="photo-panel__img" />
       </div>

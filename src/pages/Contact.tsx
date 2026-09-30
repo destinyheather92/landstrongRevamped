@@ -52,7 +52,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <Divider color="var(--color-cream-dark)" />
+      <Divider color="var(--section-alt)" />
 
       <section className="section contact-main">
         <div className="container contact-main__grid">

@@ -1,4 +1,5 @@
 @import "./tokens.css";
+@import "./themes.css";
 
 /* ---------- Reset ---------- */
 *,
@@ -27,8 +28,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--background);
+  color: var(--text);
   font-family: var(--font-body);
   font-size: var(--fs-400);
   line-height: var(--lh-normal);
@@ -64,7 +65,7 @@ h4 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: var(--lh-tight);
-  color: var(--color-text);
+  color: var(--heading);
   margin: 0;
 }
 
@@ -110,7 +111,7 @@ ol {
 
 /* ---------- Focus & accessibility ---------- */
 :focus-visible {
-  outline: 3px solid var(--color-focus);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
@@ -131,8 +132,8 @@ ol {
   position: absolute;
   left: 1rem;
   top: -3.5rem;
-  background: var(--color-ink);
-  color: var(--color-cream);
+  background: var(--text);
+  color: var(--background);
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius-sm);
   z-index: 1000;
@@ -166,19 +167,27 @@ ol {
 }
 
 .section--alt {
-  background: var(--color-bg-alt);
+  background: var(--section-alt-bg);
 }
 
 .section--ink {
-  background: var(--color-ink);
-  color: var(--color-cream);
+  background: var(--section-contrast);
+  color: var(--section-contrast-text);
 }
 
 .section--ink h1,
 .section--ink h2,
 .section--ink h3,
 .section--ink h4 {
-  color: var(--color-cream);
+  color: var(--section-contrast-heading);
+}
+
+.section--ink .eyebrow {
+  color: var(--section-contrast-eyebrow);
+}
+
+.section--ink .section-heading__subtitle {
+  color: var(--section-contrast-subtitle);
 }
 
 .stack {
@@ -195,7 +204,7 @@ ol {
   font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-terracotta-dark);
+  color: var(--eyebrow);
 }
 
 .text-center {
@@ -207,6 +216,6 @@ ol {
 }
 
 ::selection {
-  background: var(--color-gold);
-  color: var(--color-ink);
+  background: var(--selection-bg);
+  color: var(--selection-text);
 }

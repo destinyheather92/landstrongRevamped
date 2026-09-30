@@ -1,3 +1,7 @@
+.contact-hero {
+  background: var(--hero-bg);
+}
+
 .contact-hero__inner {
   max-width: 44rem;
 }
@@ -9,7 +13,7 @@
 .contact-hero__lede {
   margin-top: var(--space-lg);
   font-size: var(--fs-500);
-  color: var(--color-text-soft);
+  color: var(--muted-text);
   line-height: var(--lh-normal);
 }
 
@@ -31,11 +35,11 @@
   align-items: flex-start;
   gap: var(--space-md);
   padding: var(--space-md) var(--space-lg);
-  background: var(--color-surface);
+  background: var(--surface);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--card-ring), var(--shadow-soft);
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--text);
   transition: transform var(--dur-fast) var(--ease-out);
 }
 
@@ -48,8 +52,8 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 50%;
-  background: var(--color-cream-dark);
-  color: var(--color-terracotta-dark);
+  background: var(--icon-bg);
+  color: var(--icon);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,7 +70,7 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--color-text-soft);
+  color: var(--muted-text);
 }
 
 .contact-info__value {
@@ -91,21 +95,22 @@
 .contact-social a {
   text-decoration: none;
   font-weight: 700;
-  color: var(--color-terracotta-dark);
+  color: var(--link);
 }
 
 .contact-social a:hover {
   text-decoration: underline;
+  color: var(--link-hover);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  background: var(--color-surface);
+  background: var(--surface);
   padding: var(--space-lg);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--card-ring), var(--shadow-soft);
 }
 
 .contact-form__field {
@@ -121,23 +126,23 @@
 
 .contact-form__field input,
 .contact-form__field textarea {
-  border: 1.5px solid var(--color-border);
+  border: 1.5px solid var(--input-border);
   border-radius: var(--radius-sm);
   padding: 0.7rem 0.9rem;
-  background: var(--color-cream);
-  color: var(--color-text);
+  background: var(--input-bg);
+  color: var(--text);
   resize: vertical;
 }
 
 .contact-form__field input:focus,
 .contact-form__field textarea:focus {
-  border-color: var(--color-terracotta);
+  border-color: var(--input-focus);
 }
 
 .contact-form__status {
   min-height: 1.2em;
   font-weight: 700;
-  color: var(--color-sage-dark);
+  color: var(--success-text);
 }
 
 .contact-map {

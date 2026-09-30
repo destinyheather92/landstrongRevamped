@@ -28,7 +28,7 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lift);
-  background: var(--color-ink);
+  background: var(--media-bg);
 }
 
 .photo-panel__img {
@@ -46,5 +46,5 @@
   text-align: center;
   font-size: 0.92rem;
   font-style: italic;
-  color: var(--color-text-soft);
+  color: var(--muted-text);
 }

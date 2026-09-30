@@ -1,3 +1,7 @@
+.coaching-hero {
+  background: var(--hero-bg);
+}
+
 .coaching-hero__inner {
   max-width: 46rem;
 }
@@ -9,7 +13,7 @@
 .coaching-hero__lede {
   margin-top: var(--space-lg);
   font-size: var(--fs-500);
-  color: var(--color-text-soft);
+  color: var(--muted-text);
   line-height: var(--lh-normal);
 }
 
@@ -26,7 +30,7 @@
 .coaching-list li {
   position: relative;
   padding-left: 1.5rem;
-  color: var(--color-text);
+  color: var(--text);
 }
 
 .coaching-list li::before {
@@ -37,7 +41,7 @@
   width: 0.55rem;
   height: 0.55rem;
   border-radius: 50%;
-  background: var(--color-sage);
+  background: var(--bullet);
 }
 
 .process-steps {
@@ -50,8 +54,8 @@
   text-align: center;
   padding: var(--space-lg) var(--space-md);
   border-radius: var(--radius-lg);
-  background: rgba(251, 243, 234, 0.06);
-  border: 1px solid rgba(251, 243, 234, 0.12);
+  background: var(--section-contrast-card);
+  border: 1px solid var(--section-contrast-card-border);
 }
 
 .process-step__number {
@@ -62,8 +66,8 @@
   height: 3rem;
   margin-bottom: var(--space-md);
   border-radius: 50%;
-  background: var(--color-terracotta);
-  color: var(--color-white);
+  background: var(--step-number);
+  color: var(--step-number-text);
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.1rem;
@@ -71,12 +75,12 @@
 
 .process-step h3 {
   font-size: 1.15rem;
-  color: var(--color-cream);
+  color: var(--section-contrast-heading);
   margin-bottom: 0.5rem;
 }
 
 .process-step p {
-  color: rgba(251, 243, 234, 0.75);
+  color: var(--section-contrast-muted);
   font-size: 0.95rem;
   line-height: var(--lh-normal);
 }

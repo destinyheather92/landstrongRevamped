@@ -1,10 +1,10 @@
 .quote-block {
   margin: 0;
   position: relative;
-  background: var(--color-surface);
+  background: var(--surface);
   border-radius: var(--radius-lg);
   padding: var(--space-xl) var(--space-lg) var(--space-lg);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--card-ring), var(--shadow-soft);
   height: 100%;
 }
 
@@ -14,7 +14,7 @@
   left: 1.5rem;
   font-family: var(--font-display);
   font-size: 5rem;
-  color: var(--color-terracotta-light);
+  color: var(--quote-mark);
   line-height: 1;
   user-select: none;
 }
@@ -27,7 +27,7 @@
   font-size: 1.1rem;
   line-height: var(--lh-normal);
   font-style: italic;
-  color: var(--color-text);
+  color: var(--text);
 }
 
 .quote-block--lg .quote-block__text p {
@@ -35,7 +35,7 @@
   font-size: var(--fs-700);
   font-style: normal;
   line-height: var(--lh-snug);
-  color: var(--color-text);
+  color: var(--text);
 }
 
 .quote-block__caption {
@@ -47,10 +47,10 @@
 
 .quote-block__name {
   font-weight: 800;
-  color: var(--color-terracotta-dark);
+  color: var(--primary);
 }
 
 .quote-block__detail {
   font-size: var(--fs-300);
-  color: var(--color-text-soft);
+  color: var(--muted-text);
 }

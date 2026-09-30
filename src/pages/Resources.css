@@ -1,3 +1,7 @@
+.resources-hero {
+  background: var(--hero-bg);
+}
+
 .resources-hero__inner {
   max-width: 46rem;
 }
@@ -9,7 +13,7 @@
 .resources-hero__lede {
   margin-top: var(--space-lg);
   font-size: var(--fs-500);
-  color: var(--color-text-soft);
+  color: var(--muted-text);
   line-height: var(--lh-normal);
 }
 
@@ -23,10 +27,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  background: var(--color-surface);
+  background: var(--surface);
   padding: var(--space-lg);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--card-ring), var(--shadow-soft);
   transition: transform var(--dur-med) var(--ease-out);
 }
 
@@ -43,7 +47,7 @@
 
 .resource-card__read-time {
   font-size: 0.8rem;
-  color: var(--color-text-soft);
+  color: var(--muted-text);
   font-weight: 700;
 }
 
@@ -52,19 +56,23 @@
 }
 
 .resource-card__excerpt {
-  color: var(--color-text-soft);
+  color: var(--muted-text);
   line-height: var(--lh-normal);
   font-size: 0.95rem;
 }
 
 .resources-grid__note {
   margin-top: var(--space-xl);
-  color: var(--color-text-soft);
+  color: var(--muted-text);
 }
 
 .resources-grid__note a {
-  color: var(--color-terracotta-dark);
+  color: var(--link);
   font-weight: 700;
+}
+
+.resources-grid__note a:hover {
+  color: var(--link-hover);
 }
 
 .grounding-section__inner {
@@ -77,8 +85,8 @@
   text-align: center;
   padding: var(--space-xl);
   border-radius: var(--radius-lg);
-  background: rgba(251, 243, 234, 0.06);
-  border: 1px solid rgba(251, 243, 234, 0.14);
+  background: var(--section-contrast-card);
+  border: 1px solid var(--section-contrast-card-border);
 }
 
 .grounding-card__icon {
@@ -87,8 +95,8 @@
   margin-inline: auto;
   margin-bottom: var(--space-md);
   border-radius: 50%;
-  background: rgba(217, 164, 65, 0.16);
-  color: var(--color-gold);
+  background: var(--section-contrast-icon-bg);
+  color: var(--section-contrast-icon);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +109,7 @@
 
 .grounding-card h2 {
   font-size: var(--fs-700);
-  color: var(--color-cream);
+  color: var(--section-contrast-heading);
 }
 
 .grounding-steps {
@@ -112,7 +120,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
-  color: rgba(251, 243, 234, 0.85);
+  color: var(--section-contrast-text-soft);
   line-height: var(--lh-normal);
 }
 
@@ -120,7 +128,7 @@
   margin-top: var(--space-lg);
   font-size: 0.9rem;
   font-style: italic;
-  color: rgba(251, 243, 234, 0.65);
+  color: var(--section-contrast-subtle);
 }
 
 .faq-wrap {

@@ -37,7 +37,7 @@ export default function Coaching() {
         </div>
       </section>
 
-      <Divider color="var(--color-cream-dark)" />
+      <Divider color="var(--section-alt)" />
 
       <section className="section--alt section">
         <div className="container">
@@ -84,7 +84,7 @@ export default function Coaching() {
         </div>
       </section>
 
-      <Divider color="var(--color-ink)" />
+      <Divider color="var(--section-contrast)" />
 
       <section className="section section--ink process-section">
         <div className="container">
@@ -105,7 +105,7 @@ export default function Coaching() {
         </div>
       </section>
 
-      <Divider color="var(--color-cream)" flip />
+      <Divider color="var(--background)" flip />
 
       <section className="section">
         <div className="container">

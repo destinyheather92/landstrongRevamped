@@ -9,7 +9,7 @@ interface BlobProps {
  * A soft, hand-drawn-feeling organic shape used as decorative background
  * texture. Purely visual — always aria-hidden.
  */
-export default function Blob({ color = "var(--color-terracotta-light)", className = "" }: BlobProps) {
+export default function Blob({ color = "var(--decor-primary)", className = "" }: BlobProps) {
   return (
     <svg
       className={`blob ${className}`}

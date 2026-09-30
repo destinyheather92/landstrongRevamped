@@ -28,39 +28,40 @@
 }
 
 .btn--primary {
-  /* terracotta-dark (not the brighter --color-terracotta) so white button
-     text clears WCAG AA contrast at this size */
-  background: var(--color-terracotta-dark);
-  color: var(--color-white);
+  /* every theme picks a --button-primary dark enough that
+     --button-primary-text clears WCAG AA contrast at this size */
+  background: var(--button-primary);
+  color: var(--button-primary-text);
   box-shadow: var(--shadow-soft);
 }
 
 .btn--primary:hover {
-  background: var(--color-terracotta-deep);
+  background: var(--button-primary-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lift);
 }
 
 .btn--secondary {
-  background: transparent;
-  color: var(--color-ink);
-  border-color: var(--color-ink);
+  background: var(--button-secondary);
+  color: var(--button-secondary-text);
+  border-color: var(--button-secondary-border);
 }
 
 .btn--secondary:hover {
-  background: var(--color-ink);
-  color: var(--color-cream);
+  background: var(--button-secondary-hover);
+  color: var(--button-secondary-hover-text);
+  border-color: var(--button-secondary-hover-border);
   transform: translateY(-2px);
 }
 
 .btn--ghost {
-  background: rgba(255, 253, 249, 0.6);
-  color: var(--color-ink);
-  border-color: rgba(58, 43, 57, 0.18);
+  background: var(--button-ghost);
+  color: var(--button-ghost-text);
+  border-color: var(--button-ghost-border);
 }
 
 .btn--ghost:hover {
-  background: var(--color-white);
+  background: var(--button-ghost-hover);
   transform: translateY(-2px);
 }
 

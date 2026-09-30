@@ -1,3 +1,7 @@
+.about-hero {
+  background: var(--hero-bg);
+}
+
 .about-hero__inner {
   max-width: 46rem;
 }
@@ -9,7 +13,7 @@
 .about-hero__lede {
   margin-top: var(--space-lg);
   font-size: var(--fs-500);
-  color: var(--color-text-soft);
+  color: var(--muted-text);
   line-height: var(--lh-normal);
 }
 
@@ -36,10 +40,10 @@
 .about-pillar {
   display: flex;
   gap: var(--space-md);
-  background: var(--color-surface);
+  background: var(--surface);
   padding: var(--space-lg);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--card-ring), var(--shadow-soft);
 }
 
 .about-pillar__icon {
@@ -47,8 +51,8 @@
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: var(--color-cream-dark);
-  color: var(--color-terracotta-dark);
+  background: var(--icon-bg);
+  color: var(--icon);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,7 +69,7 @@
 }
 
 .about-pillar p {
-  color: var(--color-text-soft);
+  color: var(--muted-text);
   font-size: 0.95rem;
   line-height: var(--lh-normal);
 }

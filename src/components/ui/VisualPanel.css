@@ -11,27 +11,27 @@
 }
 
 .visual-panel--terracotta {
-  background: linear-gradient(155deg, #f6e2d3 0%, #f3e6d6 60%);
-  --panel-blob-1: var(--color-terracotta-light);
-  --panel-blob-2: var(--color-rose);
+  background: linear-gradient(155deg, var(--panel-terracotta-wash) 0%, var(--panel-base) 60%);
+  --panel-blob-1: var(--panel-terracotta-blob-1);
+  --panel-blob-2: var(--panel-terracotta-blob-2);
 }
 
 .visual-panel--sage {
-  background: linear-gradient(155deg, #e9ede2 0%, #f3e6d6 60%);
-  --panel-blob-1: var(--color-sage-light);
-  --panel-blob-2: var(--color-gold);
+  background: linear-gradient(155deg, var(--panel-sage-wash) 0%, var(--panel-base) 60%);
+  --panel-blob-1: var(--panel-sage-blob-1);
+  --panel-blob-2: var(--panel-sage-blob-2);
 }
 
 .visual-panel--gold {
-  background: linear-gradient(155deg, #f7e9cc 0%, #f3e6d6 60%);
-  --panel-blob-1: var(--color-gold);
-  --panel-blob-2: var(--color-terracotta-light);
+  background: linear-gradient(155deg, var(--panel-gold-wash) 0%, var(--panel-base) 60%);
+  --panel-blob-1: var(--panel-gold-blob-1);
+  --panel-blob-2: var(--panel-gold-blob-2);
 }
 
 .visual-panel--plum {
-  background: linear-gradient(155deg, #ecd9e4 0%, #f3e6d6 60%);
-  --panel-blob-1: var(--color-plum);
-  --panel-blob-2: var(--color-rose);
+  background: linear-gradient(155deg, var(--panel-plum-wash) 0%, var(--panel-base) 60%);
+  --panel-blob-1: var(--panel-plum-blob-1);
+  --panel-blob-2: var(--panel-plum-blob-2);
 }
 
 .visual-panel__blob {
@@ -54,7 +54,7 @@
 .visual-panel__dots {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(58, 43, 57, 0.16) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(var(--panel-dots) 1.5px, transparent 1.5px);
   background-size: 18px 18px;
   mask-image: radial-gradient(circle at 30% 30%, black, transparent 65%);
   z-index: 0;
@@ -66,11 +66,11 @@
   width: clamp(4.5rem, 12vw, 6.5rem);
   height: clamp(4.5rem, 12vw, 6.5rem);
   border-radius: 50%;
-  background: rgba(255, 253, 249, 0.75);
+  background: var(--panel-icon-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-terracotta-dark);
+  color: var(--icon);
   backdrop-filter: blur(2px);
 }
 
@@ -88,5 +88,5 @@
   font-family: var(--font-display);
   font-size: var(--fs-500);
   font-weight: 600;
-  color: var(--color-ink);
+  color: var(--heading);
 }

@@ -1,15 +1,15 @@
 .cta-banner {
   position: relative;
   overflow: hidden;
-  background: var(--color-ink);
-  color: var(--color-cream);
+  background: var(--cta-glow), var(--cta-bg);
+  color: var(--cta-text);
   padding-block: var(--space-2xl);
 }
 
 .cta-banner__decor {
   position: absolute;
   inset: 0;
-  color: var(--color-gold);
+  color: var(--cta-decor);
   opacity: 0.5;
 }
 
@@ -27,19 +27,20 @@
   max-width: 40rem;
 }
 
-.cta-banner__eyebrow {
-  color: var(--color-gold);
+/* two classes so it outranks the global .eyebrow rule, which loads later */
+.cta-banner .cta-banner__eyebrow {
+  color: var(--cta-eyebrow);
 }
 
 .cta-banner__title {
-  color: var(--color-cream);
+  color: var(--cta-heading);
   margin-top: var(--space-sm);
 }
 
 .cta-banner__subtitle {
   margin-top: var(--space-md);
   font-size: var(--fs-500);
-  color: rgba(251, 243, 234, 0.82);
+  color: var(--cta-text-muted);
   line-height: var(--lh-normal);
 }
 
@@ -50,22 +51,33 @@
   margin-top: var(--space-lg);
 }
 
+.cta-banner .btn--primary {
+  background: var(--cta-button);
+  color: var(--cta-button-text);
+}
+
+.cta-banner .btn--primary:hover {
+  background: var(--cta-button-hover);
+}
+
 .cta-banner .btn--secondary {
-  color: var(--color-cream);
-  border-color: var(--color-cream);
+  background: transparent;
+  color: var(--cta-text);
+  border-color: var(--cta-text);
 }
 
 .cta-banner .btn--secondary:hover {
-  background: var(--color-cream);
-  color: var(--color-ink);
+  background: var(--cta-text);
+  color: var(--cta-bg);
+  border-color: var(--cta-text);
 }
 
 .cta-banner .btn--ghost {
   background: transparent;
-  border-color: rgba(251, 243, 234, 0.5);
-  color: var(--color-cream);
+  border-color: var(--cta-ghost-border);
+  color: var(--cta-ghost-text);
 }
 
 .cta-banner .btn--ghost:hover {
-  background: rgba(251, 243, 234, 0.12);
+  background: var(--cta-ghost-hover);
 }

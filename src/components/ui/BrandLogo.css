@@ -1,0 +1,19 @@
+.brand-logo {
+  display: block;
+  /* logo.png is 2284 × 454 */
+  aspect-ratio: 2284 / 454;
+  /*
+    Two stacked fills, clipped to the artwork by the mask:
+    - top layer paints the rules above and below the letters (outer 20% of
+      the height) in the accent color;
+    - bottom layer splits the letters at the gap between "LAND" and "STRONG"
+      (40.7% across).
+  */
+  background:
+    linear-gradient(to bottom, var(--logo-accent) 20%, transparent 20% 80%, var(--logo-accent) 80%),
+    linear-gradient(to right, var(--logo-primary) 40.7%, var(--logo-accent) 40.7%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}

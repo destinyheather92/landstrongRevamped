@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { businessInfo, navLinks, siteMeta, socialLinks } from "../../data/siteContent";
-import logo from "../../assets/logo.png";
+import BrandLogo from "../ui/BrandLogo";
 import "./Footer.css";
 
 function SocialIcon({ icon }: { icon: "instagram" | "linkedin" | "facebook" }) {
@@ -48,7 +48,7 @@ export default function Footer() {
       <div className="container footer__inner">
         <div className="footer__brand">
           <Link to="/" aria-label={`${siteMeta.name} — home`}>
-            <img src={logo} alt={siteMeta.name} className="footer__logo" />
+            <BrandLogo label={siteMeta.name} className="footer__logo" />
           </Link>
           <p className="footer__tagline">{siteMeta.tagline}</p>
           <ul className="footer__social" aria-label="Follow LandStrong on social media">
