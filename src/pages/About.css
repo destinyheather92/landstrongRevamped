@@ -1,7 +1,3 @@
-.about-hero {
-  background: var(--hero-bg);
-}
-
 .about-hero__inner {
   max-width: 46rem;
 }

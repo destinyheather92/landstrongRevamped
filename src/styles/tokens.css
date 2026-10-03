@@ -53,7 +53,6 @@
   --surface: var(--color-white);
   --section-alt: var(--color-cream-dark); /* solid — also fills the wave dividers */
   --section-alt-bg: var(--section-alt); /* may be a gradient, but must start at --section-alt */
-  --hero-bg: transparent; /* must fade to --background along its bottom edge */
   --border: rgba(58, 43, 57, 0.12);
   --card-border: transparent; /* drawn as a box-shadow ring, so it never affects layout */
   --shadow-rgb: 58 43 57;
@@ -63,7 +62,6 @@
   --heading: var(--color-ink);
   --muted-text: var(--color-ink-soft);
   --eyebrow: var(--primary);
-  --hero-accent: var(--accent);
   --link: var(--primary);
   --link-hover: var(--primary);
   --selection-bg: var(--color-gold);
@@ -90,6 +88,9 @@
   --nav-indicator: var(--accent);
   --nav-icon: var(--color-ink);
   --mobile-nav-bg: var(--color-cream);
+  --mobile-nav-link: var(--text);
+  --mobile-nav-link-active: var(--nav-link-active);
+  --mobile-nav-border: var(--border);
   --logo-primary: var(--color-ink); /* "LAND" */
   --logo-accent: var(--color-terracotta); /* "STRONG" + rules */
 
@@ -107,6 +108,25 @@
   --button-ghost-text: var(--color-ink);
   --button-ghost-border: rgba(58, 43, 57, 0.18);
   --button-ghost-hover: var(--color-white);
+
+  /*
+    ---- Page heroes (.page-hero) ----
+    The opening section of each page. A theme can paint it as a dark band:
+    inside it, the text and secondary-button tokens are re-pointed to these.
+  */
+  --hero-bg: transparent;
+  --hero-edge: transparent; /* fills the strip above a wave divider that follows a hero */
+  --hero-heading: var(--heading);
+  --hero-text: var(--text);
+  --hero-muted: var(--muted-text);
+  --hero-eyebrow: var(--eyebrow);
+  --hero-accent: var(--accent);
+  --hero-button-secondary: var(--button-secondary);
+  --hero-button-secondary-text: var(--button-secondary-text);
+  --hero-button-secondary-border: var(--button-secondary-border);
+  --hero-button-secondary-hover: var(--button-secondary-hover);
+  --hero-button-secondary-hover-text: var(--button-secondary-hover-text);
+  --hero-button-secondary-hover-border: var(--button-secondary-hover-border);
 
   /* ---- Badges (tone names are the component's slot names) ---- */
   --badge-text: var(--color-ink);
@@ -187,6 +207,7 @@
   /* ---- Typography ---- */
   --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
   --font-body: "Nunito Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-script: var(--font-display); /* small decorative labels — themes may set a script face */
 
   --fs-900: clamp(2.6rem, 1.9rem + 3vw, 4.2rem);
   --fs-800: clamp(2.1rem, 1.6rem + 2.2vw, 3.2rem);

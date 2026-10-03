@@ -15,7 +15,8 @@ function suppressTransitions() {
 
 /**
  * TEMPORARY — a neutral bar pinned above the navbar for flipping the whole
- * site between the candidate palettes in src/styles/themes.css. Only the
+ * site between its current styling and the palette in
+ * src/styles/themes.css. Only the
  * data-theme attribute on <html> changes, so nothing reloads or re-renders
  * and the scroll position stays put. Remove <ThemeSwitcher /> from Layout
  * to return to the current styling.
@@ -57,10 +58,7 @@ export default function ThemeSwitcher() {
                     <span key={color} style={{ background: color }} />
                   ))}
                 </span>
-                <span>
-                  <span className="theme-switcher__number">Theme {option.number} — </span>
-                  {option.name}
-                </span>
+                <span>{option.name}</span>
               </button>
             );
           })}

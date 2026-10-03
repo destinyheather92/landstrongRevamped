@@ -1,7 +1,3 @@
-.resources-hero {
-  background: var(--hero-bg);
-}
-
 .resources-hero__inner {
   max-width: 46rem;
 }

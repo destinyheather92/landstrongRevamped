@@ -1,0 +1,888 @@
+/*
+  Lavender Dusk — design layer (temporary preview).
+
+  themes.css gives this theme its colors and fonts through the shared tokens.
+  This file restyles layout and shape to follow the Lavender Dusk reference:
+  the photographic dusk hero, torn-paper and mountain-ridge section edges,
+  editorial typography, softer cards and a light/dark rhythm. Everything is
+  scoped to <html data-theme="lavender-dusk">, so the current design is
+  untouched; content, links and section order are unchanged.
+*/
+:root[data-theme="lavender-dusk"] {
+  /* Section-edge silhouettes: tileable SVGs used as masks */
+  --edge-torn: url("../assets/lavender-dusk/edge-torn.svg");
+  --edge-torn-back: url("../assets/lavender-dusk/edge-torn-back.svg");
+  --edge-ridge: url("../assets/lavender-dusk/edge-ridge.svg");
+  --edge-ridge-pines: url("../assets/lavender-dusk/edge-ridge-pines.svg");
+  --edge-h: clamp(2.75rem, 6vw, 5.5rem); /* height of a major edge */
+  --edge-soft-h: clamp(1.4rem, 2.8vw, 2.5rem); /* small torn edge between two light sections */
+  --edge-room: clamp(3.25rem, 7.5vw, 7rem); /* extra padding left under content for an edge to overlap */
+  --band-deep: #3a2f52; /* where the dark bands fade to */
+
+  /*
+    Brand mountain watermark. Point this at the LandStrong mountain asset —
+    e.g. url("../assets/lavender-dusk/brand-mountain.svg") — and it appears,
+    faded, behind the light and dark feature sections, the closing CTA and
+    the footer. Left as none, the slots render nothing.
+  */
+  --brand-mountain: none;
+  --brand-mountain-opacity: 0.08;
+
+  /* ======================================================================
+     Typography
+     ====================================================================== */
+  & h1,
+  & h2,
+  & h3,
+  & h4 {
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  & strong {
+    font-weight: 600;
+  }
+
+  /* Small decorative labels above headings, in a light script */
+  .eyebrow {
+    font-family: var(--font-script);
+    font-size: clamp(1.8rem, 1.5rem + 0.9vw, 2.35rem);
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.1;
+  }
+
+  /* …except the homepage tagline, which is real information */
+  .hero .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .section-heading {
+    gap: 0.55rem;
+    max-width: 50rem;
+  }
+
+  .services-section .section-heading {
+    margin-inline: auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section-heading__title {
+    font-size: clamp(2rem, 1.45rem + 2vw, 3rem);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .section-heading__subtitle {
+    margin-top: 0.4rem;
+    font-size: 1.08rem;
+  }
+
+  /* ======================================================================
+     Buttons — soft pills, pink with a lavender hover and a small arrow
+     ====================================================================== */
+  .btn {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .btn--primary {
+    box-shadow: 0 10px 24px -16px rgba(227, 155, 194, 0.9);
+  }
+
+  .btn--primary:hover {
+    box-shadow: 0 14px 28px -18px rgba(107, 90, 140, 0.8);
+  }
+
+  .btn--primary:not(.navbar__cta .btn, .navbar__mobile-cta)::after {
+    content: "";
+    flex-shrink: 0;
+    width: 1.05em;
+    height: 1.05em;
+    background: currentColor;
+    mask: url("../assets/lavender-dusk/arrow.svg") center / contain no-repeat;
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+
+  .btn--primary:hover::after {
+    transform: translateX(3px);
+  }
+
+  .badge {
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* ======================================================================
+     Navigation
+     ====================================================================== */
+  .navbar__link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .navbar__mobile-link {
+    font-size: 1.9rem;
+    font-weight: 500;
+  }
+
+  /* ======================================================================
+     Page heroes — the mountain photo (from --hero-bg) under a text-side scrim
+     ====================================================================== */
+  .page-hero {
+    position: relative;
+    isolation: isolate;
+    overflow-x: clip;
+    padding-top: clamp(4rem, 8vw, 7rem);
+  }
+
+  .page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(45, 36, 64, 0.72) 0%, rgba(45, 36, 64, 0.4) 46%, rgba(45, 36, 64, 0) 78%);
+  }
+
+  .hero__title {
+    font-size: var(--fs-900);
+    line-height: 1.02;
+  }
+
+  .hero__title-accent {
+    font-style: italic;
+  }
+
+  .hero__subtitle {
+    max-width: 40ch;
+    font-size: 1.1rem;
+  }
+
+  .page-hero:not(.hero) h1 {
+    font-size: clamp(2.7rem, 1.9rem + 3.2vw, 4.6rem);
+    line-height: 1.05;
+  }
+
+  /* Credentials as frosted pills on the photo */
+  .page-hero .badge {
+    background: rgba(247, 240, 250, 0.12);
+    color: var(--dusk-soft-background);
+    box-shadow: inset 0 0 0 1px rgba(247, 240, 250, 0.24);
+    backdrop-filter: blur(4px);
+  }
+
+  /* The video sits in front of a low dusk sun instead of the organic blobs */
+  .hero-video__blob {
+    display: none;
+  }
+
+  .hero-video-wrap::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: -13%;
+    right: -9%;
+    width: 72%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(241, 182, 215, 0.7) 0%, rgba(227, 155, 194, 0.28) 100%);
+    box-shadow: 0 0 90px 10px rgba(241, 182, 215, 0.22);
+  }
+
+  .hero-video {
+    border-radius: 1.1rem;
+    box-shadow:
+      0 0 0 1px rgba(247, 240, 250, 0.16),
+      0 40px 80px -40px rgba(20, 14, 32, 0.8);
+  }
+
+  .hero-video__label {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+  }
+
+  /* ======================================================================
+     Section edges
+     Torn paper and mountain ridgelines instead of straight lines or waves.
+     A divider (already placed at each major transition) becomes two
+     silhouettes that overlap the bottom of the section above it: ::before is
+     the farther layer, ::after the nearer one in the next section's color.
+     The shape and colors follow from what comes next.
+     ====================================================================== */
+  .divider {
+    --edge-front: var(--edge-torn);
+    --edge-front-color: var(--background);
+    --edge-back: var(--edge-torn-back);
+    --edge-back-color: rgba(201, 180, 230, 0.6);
+    --edge-back-scale: 1.35;
+    position: relative;
+    z-index: 2;
+    height: var(--edge-h);
+    margin-top: calc(-1 * var(--edge-h));
+    transform: none !important; /* the current design flips some dividers inline */
+    pointer-events: none;
+  }
+
+  .divider > svg {
+    display: none;
+  }
+
+  /* shared geometry for every edge layer */
+  :is(.divider, .cta-banner, .footer)::before,
+  :is(.divider, .cta-banner, .footer)::after,
+  .page-hero:not(:has(+ .divider))::after,
+  :is(.section + .section--alt, .section--alt + .section:not(.section--alt, .section--ink))::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    mask-repeat: repeat-x;
+    mask-size: auto 100%;
+    mask-position: center bottom;
+  }
+
+  .divider::before {
+    bottom: -1px;
+    height: calc(var(--edge-h) * var(--edge-back-scale));
+    background: var(--edge-back-color);
+    mask-image: var(--edge-back);
+  }
+
+  .divider::after {
+    bottom: -1px;
+    height: calc(var(--edge-h) + 1px);
+    background: var(--edge-front-color);
+    mask-image: var(--edge-front);
+  }
+
+  .divider:has(+ .section--alt) {
+    --edge-front-color: var(--section-alt);
+  }
+
+  /* Rising into a dark band: a far range, then a near ridge with pines */
+  .divider:has(+ .section--ink, + .section .about-quote) {
+    --edge-h: clamp(3.25rem, 7.5vw, 7rem);
+    --edge-front: var(--edge-ridge-pines);
+    --edge-front-color: var(--section-contrast);
+    --edge-back: var(--edge-ridge);
+    --edge-back-color: var(--dusk-deep-purple);
+    --edge-back-scale: 1.65;
+  }
+
+  /* Out of the hero photo: a translucent range behind a torn paper edge */
+  .page-hero + .divider {
+    --edge-back: var(--edge-ridge);
+    --edge-back-color: rgba(201, 180, 230, 0.5);
+    --edge-back-scale: 1.9;
+  }
+
+  /* A hero without a divider after it tears straight into the next section */
+  .page-hero:not(:has(+ .divider))::after {
+    bottom: -1px;
+    z-index: 1;
+    height: calc(var(--edge-h) + 1px);
+    background: var(--background);
+    mask-image: var(--edge-torn);
+  }
+
+  /* Small torn edges between two light sections */
+  .section + .section--alt::before {
+    bottom: calc(100% - 1px);
+    height: var(--edge-soft-h);
+    background: var(--section-alt);
+    mask-image: var(--edge-torn);
+  }
+
+  .section--alt + .section:not(.section--alt, .section--ink)::before {
+    bottom: calc(100% - 1px);
+    height: var(--edge-soft-h);
+    background: var(--background);
+    mask-image: var(--edge-torn-back);
+  }
+
+  /* Leave room under content for whatever edge overlaps the bottom */
+  .page-hero:has(+ .divider) {
+    padding-bottom: calc(clamp(2rem, 4vw, 3.5rem) + var(--edge-room));
+  }
+
+  .section:not(.page-hero):has(+ .divider),
+  .page-hero:not(:has(+ .divider)),
+  .section:has(+ .cta-banner),
+  main > .section:last-child {
+    padding-bottom: calc(var(--space-2xl) + var(--edge-room));
+  }
+
+  .section:has(+ .section--alt),
+  .section--alt:has(+ .section:not(.section--alt, .section--ink)) {
+    padding-bottom: calc(var(--space-2xl) + var(--edge-soft-h));
+  }
+
+  /* ======================================================================
+     Dark bands (.section--ink): twilight deepening toward the bottom, with a
+     faint distant range sitting behind the torn edge that closes them
+     ====================================================================== */
+  .section--ink {
+    background:
+      radial-gradient(ellipse 40% 45% at 85% 55%, rgba(241, 182, 215, 0.1), transparent 70%),
+      linear-gradient(180deg, var(--section-contrast) 0%, var(--band-deep) 100%);
+  }
+
+  .section--ink::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(var(--edge-h) * 2);
+    pointer-events: none;
+    background: rgba(201, 180, 230, 0.09);
+    mask: var(--edge-ridge) center bottom / auto 100% repeat-x;
+  }
+
+  /* ======================================================================
+     Home — "Sound familiar?": a centered statement, pain points as an
+     editorial list with small mountain markers
+     ====================================================================== */
+  .relatable__grid {
+    max-width: 52rem;
+    gap: 0 clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  .relatable__item {
+    padding: 1.05rem 0.25rem;
+    border-bottom: 1px solid rgba(63, 51, 88, 0.14);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    font-weight: 500;
+  }
+
+  .relatable__dot {
+    width: 0.85rem;
+    height: 0.6rem;
+    margin-top: 0.5rem;
+    border-radius: 0;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+
+  .relatable__note {
+    max-width: 38ch;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.85rem);
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--heading);
+  }
+
+  /* ======================================================================
+     Home — services as arched editorial cards
+     ====================================================================== */
+  .services-section__grid {
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .service-card {
+    padding: clamp(2.75rem, 4vw, 3.5rem) clamp(1.5rem, 2.5vw, 2.25rem) 1.75rem;
+    border-radius: 50% 50% 1.25rem 1.25rem / 6.5rem 6.5rem 1.25rem 1.25rem;
+    box-shadow:
+      var(--card-ring),
+      0 22px 44px -36px rgb(var(--shadow-rgb) / 0.45);
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      var(--card-ring),
+      0 28px 50px -34px rgb(var(--shadow-rgb) / 0.5);
+  }
+
+  .service-card__icon {
+    width: 4.25rem;
+    height: 4.25rem;
+    margin-inline: auto;
+    margin-bottom: 1.25rem;
+    border-radius: 50%;
+  }
+
+  .service-card__title,
+  .service-card__tagline {
+    text-align: center;
+  }
+
+  .service-card__title {
+    font-size: clamp(1.75rem, 1.5rem + 0.6vw, 2.05rem);
+    font-weight: 600;
+  }
+
+  .service-card__tagline {
+    font-family: var(--font-display);
+    font-size: 1.22rem;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  /* ======================================================================
+     Home — "How we work": four features across, on round lavender icons
+     ====================================================================== */
+  .pillars-section__grid {
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .pillar-card {
+    padding: 0 0.5rem;
+    border: 0;
+    background: none;
+  }
+
+  .pillar-card__icon {
+    width: 5.25rem;
+    height: 5.25rem;
+    background: var(--dusk-chip);
+    color: var(--dusk-ink);
+    box-shadow: 0 0 0 7px rgba(232, 220, 244, 0.1);
+  }
+
+  .pillar-card__icon svg {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .pillar-card h3 {
+    font-size: 1.65rem;
+  }
+
+  /* ======================================================================
+     Image + text blocks: image on the left (like the reference's "About"
+     block), with a soft offset frame behind it
+     ====================================================================== */
+  .content-section {
+    gap: clamp(2.5rem, 6vw, 6rem);
+  }
+
+  @media (min-width: 861px) {
+    .content-section--media-right .content-section__media,
+    .content-section--media-left .content-section__body {
+      order: 0;
+    }
+
+    .content-section--media-right .content-section__body,
+    .content-section--media-left .content-section__media {
+      order: 1;
+    }
+  }
+
+  .content-section .section-heading {
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section .visual-panel {
+    aspect-ratio: 4 / 4.3;
+  }
+
+  .content-section__media {
+    isolation: isolate;
+  }
+
+  .content-section__media::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 1.75rem -1.25rem -1.25rem 1.75rem;
+    border: 1px solid var(--dusk-lavender);
+    border-radius: 1.25rem;
+    background: linear-gradient(160deg, rgba(232, 220, 244, 0.7), rgba(241, 182, 215, 0.2));
+  }
+
+  .visual-panel,
+  .photo-panel {
+    border-radius: 1rem;
+    box-shadow: 0 30px 60px -42px rgb(var(--shadow-rgb) / 0.6);
+  }
+
+  .photo-panel__blob {
+    display: none;
+  }
+
+  .visual-panel__label,
+  .photo-panel__label {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+
+  /* ======================================================================
+     Quotes and testimonials — open editorial columns, not boxed cards
+     ====================================================================== */
+  .quote-block {
+    padding: 3.5rem clamp(1rem, 2.5vw, 2.25rem) 0.5rem;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .quote-block__mark {
+    top: 0;
+    left: clamp(1rem, 2.5vw, 2.25rem);
+    font-size: 4.75rem;
+  }
+
+  .quote-block--md .quote-block__text p {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--heading);
+  }
+
+  .quote-block__caption {
+    margin-top: 1.25rem;
+  }
+
+  .quote-block__name {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--eyebrow);
+  }
+
+  .testimonials-section__grid {
+    gap: 0;
+  }
+
+  @media (min-width: 961px) {
+    .testimonials-section__grid > * + * {
+      border-left: 1px solid rgba(63, 51, 88, 0.16);
+    }
+  }
+
+  @media (max-width: 960px) {
+    .testimonials-section__grid > * + * {
+      margin-top: 1rem;
+      border-top: 1px solid rgba(63, 51, 88, 0.16);
+    }
+  }
+
+  /* Single testimonials sit centered */
+  :is(.coaching-quote, .workshops-quote) .quote-block {
+    text-align: center;
+  }
+
+  :is(.coaching-quote, .workshops-quote) .quote-block__mark {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  :is(.coaching-quote, .workshops-quote) .quote-block__text p {
+    font-size: clamp(1.45rem, 1.25rem + 0.8vw, 1.85rem);
+  }
+
+  /* About's founder quote becomes the dramatic dusk quote band */
+  .section.section--alt:has(.about-quote) {
+    padding-bottom: calc(var(--space-2xl) + var(--edge-room) * 1.5);
+    --heading: var(--dusk-soft-background);
+    --text: var(--dusk-soft-background);
+    --muted-text: rgba(247, 240, 250, 0.82);
+    --eyebrow: var(--dusk-soft-pink);
+    --primary: var(--dusk-soft-pink);
+    --quote-mark: var(--dusk-soft-pink);
+    color: var(--text);
+    background:
+      radial-gradient(ellipse 45% 60% at 50% 100%, rgba(241, 182, 215, 0.14), transparent 70%),
+      linear-gradient(180deg, var(--section-contrast) 0%, var(--band-deep) 100%);
+  }
+
+  .section--alt:has(.about-quote)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(var(--edge-h) * 2.2);
+    pointer-events: none;
+    background: rgba(201, 180, 230, 0.1);
+    mask: var(--edge-ridge-pines) center bottom / auto 100% repeat-x;
+  }
+
+  .about-quote .quote-block {
+    text-align: center;
+  }
+
+  .about-quote .quote-block__mark {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about-quote .quote-block--lg .quote-block__text p {
+    font-size: clamp(1.9rem, 1.4rem + 2vw, 2.9rem);
+    font-style: italic;
+    line-height: 1.3;
+  }
+
+  /* ======================================================================
+     Other dark-band content
+     ====================================================================== */
+  .process-step {
+    border: 0;
+    background: none;
+  }
+
+  .process-step__number {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .process-step h3 {
+    font-size: 1.6rem;
+  }
+
+  .grounding-card {
+    border-radius: 1.5rem;
+    background: rgba(247, 240, 250, 0.05);
+  }
+
+  .grounding-card__footnote {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+  }
+
+  .audiences-list li {
+    border: 0;
+    border-bottom: 1px solid var(--section-contrast-card-border);
+    border-radius: 0;
+    background: none;
+  }
+
+  /* ======================================================================
+     Soft editorial cards elsewhere
+     ====================================================================== */
+  :is(.about-pillar, .topic-card, .resource-card, .contact-info__card, .contact-form) {
+    border-radius: 1.25rem;
+    box-shadow:
+      var(--card-ring),
+      0 18px 40px -34px rgb(var(--shadow-rgb) / 0.4);
+  }
+
+  :is(.about-pillar, .topic-card) h3,
+  .resource-card__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .accordion {
+    gap: 0;
+  }
+
+  .accordion__item {
+    border-bottom: 1px solid rgba(63, 51, 88, 0.16);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .accordion__item:first-child {
+    border-top: 1px solid rgba(63, 51, 88, 0.16);
+  }
+
+  .accordion__trigger {
+    padding-inline: 0.25rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .accordion__panel {
+    padding-inline: 0.25rem;
+  }
+
+  .contact-form__field label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .contact-form__field :is(input, textarea) {
+    border-radius: 0.8rem;
+  }
+
+  /* ======================================================================
+     Closing CTA — a dusk band torn open at the top, a distant range along
+     its foot, and the footer's pine ridge rising out of it
+     ====================================================================== */
+  .cta-banner {
+    --edge-back-color: rgba(201, 180, 230, 0.55);
+    overflow: visible;
+    padding-block: clamp(5rem, 9vw, 8rem) calc(clamp(5rem, 9vw, 8rem) + var(--edge-room));
+    text-align: center;
+  }
+
+  .cta-banner::before {
+    bottom: calc(100% - 1px);
+    height: calc(var(--edge-h) * 1.35);
+    background: var(--edge-back-color);
+    mask-image: var(--edge-torn-back);
+  }
+
+  .cta-banner::after {
+    bottom: calc(100% - 1px);
+    height: var(--edge-h);
+    background: var(--cta-bg);
+    mask-image: var(--edge-torn);
+  }
+
+  .cta-banner__decor {
+    overflow: hidden;
+  }
+
+  .cta-banner__decor::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(var(--edge-h) * 2.4);
+    background: rgba(201, 180, 230, 0.32); /* the decor layer itself is at 50% opacity */
+    mask: var(--edge-ridge) center bottom / auto 100% repeat-x;
+  }
+
+  .cta-banner__inner {
+    max-width: 50rem;
+  }
+
+  .cta-banner__title {
+    font-size: clamp(2.5rem, 1.8rem + 3vw, 4.2rem);
+    font-style: italic;
+    line-height: 1.08;
+  }
+
+  .cta-banner__subtitle {
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  .cta-banner__actions {
+    justify-content: center;
+  }
+
+  /* ======================================================================
+     Footer — night, rising as the nearest ridge
+     ====================================================================== */
+  .footer {
+    position: relative;
+    z-index: 1;
+    --edge-h: clamp(3rem, 7vw, 6.5rem);
+  }
+
+  .footer::before {
+    bottom: calc(100% - 1px);
+    height: calc(var(--edge-h) * 1.6);
+    background: #352b4b;
+    mask-image: var(--edge-ridge);
+  }
+
+  .footer::after {
+    bottom: calc(100% - 1px);
+    height: var(--edge-h);
+    background: var(--footer-bg);
+    mask-image: var(--edge-ridge-pines);
+  }
+
+  .footer__tagline {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+  }
+
+  .footer__heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+  }
+
+  /* ======================================================================
+     Brand mountain watermark slots — empty until --brand-mountain is set
+     ====================================================================== */
+  :is(.section--ink, .section--alt) > .container,
+  .footer__inner {
+    position: relative;
+    isolation: isolate;
+  }
+
+  :is(.section--ink, .section--alt) > .container::before,
+  .footer__inner::before,
+  .cta-banner__decor::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--brand-mountain) center / contain no-repeat;
+    opacity: var(--brand-mountain-opacity);
+  }
+
+  :is(.section--ink, .section--alt) > .container::before {
+    top: 50%;
+    right: -4%;
+    width: min(38%, 26rem);
+    aspect-ratio: 1.2;
+    transform: translateY(-50%);
+  }
+
+  .section--alt > .container::before {
+    right: auto;
+    left: -4%;
+  }
+
+  .cta-banner__decor::after {
+    top: 50%;
+    left: 50%;
+    width: min(70%, 34rem);
+    aspect-ratio: 1.2;
+    transform: translate(-50%, -55%);
+    opacity: calc(var(--brand-mountain-opacity) * 2); /* the decor layer is at 50% */
+  }
+
+  .footer__inner::before {
+    right: 0;
+    bottom: 1rem;
+    width: min(30%, 18rem);
+    aspect-ratio: 1.2;
+  }
+
+  /* ======================================================================
+     Smaller screens
+     ====================================================================== */
+  @media (max-width: 860px) {
+    /* text sits below the media here, so the scrim darkens downward */
+    .page-hero::before {
+      background: linear-gradient(180deg, rgba(45, 36, 64, 0.2) 0%, rgba(45, 36, 64, 0.55) 45%, rgba(45, 36, 64, 0.72) 100%);
+    }
+
+    .hero-video-wrap::before {
+      top: -8%;
+      right: -4%;
+      width: 58%;
+    }
+
+    .content-section__media::before {
+      inset: 1rem -0.6rem -0.6rem 1rem;
+    }
+  }
+
+  @media (max-width: 720px) {
+    :is(.section--ink, .section--alt) > .container::before,
+    .footer__inner::before {
+      display: none;
+    }
+  }
+}

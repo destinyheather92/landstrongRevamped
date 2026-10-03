@@ -19,7 +19,7 @@ export default function About() {
 
   return (
     <>
-      <section className="section about-hero">
+      <section className="section about-hero page-hero">
         <div className="container about-hero__inner">
           <p className="eyebrow">About LandStrong</p>
           <h1>Meet the woman behind the steadiness.</h1>

@@ -18,7 +18,7 @@ export default function Workshops() {
 
   return (
     <>
-      <section className="section workshops-hero">
+      <section className="section workshops-hero page-hero">
         <div className="container workshops-hero__inner">
           <p className="eyebrow">Workshops</p>
           <h1>A few hours that reset how your whole group carries stress.</h1>

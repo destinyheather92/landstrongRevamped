@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <>
       {/* ---------- Hero ---------- */}
-      <section className="hero section">
+      <section className="hero section page-hero">
         <div className="container hero__grid">
           <div className="hero__copy">
             <p className="eyebrow">Coaching &amp; Consulting for Women</p>

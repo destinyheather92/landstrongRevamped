@@ -1,363 +1,241 @@
 /*
-  Candidate color directions for LandStrong (temporary side-by-side review).
+  Theme preview: Lavender Dusk (temporary — toggled by ThemeSwitcher).
 
-  Each theme re-maps every semantic token defined in tokens.css, so the
-  layout, type, spacing and imagery stay identical and only color changes.
-  A theme applies when <html data-theme="…"> is set (see ThemeSwitcher);
-  with no data-theme, the current styling in tokens.css renders unchanged.
+  Re-maps every semantic token defined in tokens.css, so layout, type,
+  spacing and imagery stay identical and only color changes. Applies when
+  <html data-theme="lavender-dusk"> is set; with no data-theme, the current
+  styling in tokens.css renders unchanged.
 
-  To make one permanent: copy its block's declarations into the theme-token
-  section of tokens.css (replacing those values), then delete this file and
-  the ThemeSwitcher.
+  To adjust a shade, change it in the palette at the top of the block — every
+  component picks it up. Layout and shape changes for this theme (hero photo
+  treatment, torn-paper and mountain edges, editorial cards) live in
+  lavender-dusk.css. To make the theme permanent, copy the block's
+  declarations into the theme-token section of tokens.css (replacing those
+  values), then delete this file and the ThemeSwitcher.
 
-  Contrast notes (WCAG 2.x, normal text needs 4.5:1, large text/graphics 3:1)
-  are called out wherever a palette color had to be deepened or confined to
-  decorative use to stay readable.
+  Contrast notes (WCAG 2.x: normal text needs 4.5:1, large text and
+  graphics 3:1) are given wherever a palette color had to be deepened or kept
+  to decorative use to stay readable.
 */
 
 /* =========================================================================
-   Theme 1 — Dreamy Princess
-   Airy blush / orchid / lavender grounds, dusty blue as the brand color and
-   black as the grown-up anchor (headings, CTAs, footer).
-   The pure dusty blue #8e9aaf is only 2.7:1 on light grounds and 2.8:1
-   under white text, so small text, links and filled buttons use a deepened
-   dusty blue from the same hue; the palette value is kept for surfaces,
-   markers and decorative detail.
+   Lavender Dusk
+   Pale lavender grounds and cards; deep dusk purples for the nav, page
+   heroes, feature band, CTA and footer; soft pink kept to buttons, accents
+   and hover states.
+   The pinks and medium purple are only 2–3:1 on the pale grounds, so text
+   uses deepened shades of the same hues and the palette values go to fills,
+   buttons and decoration.
    ========================================================================= */
-:root[data-theme="dreamy"] {
+:root[data-theme="lavender-dusk"] {
   /* Palette */
-  --dreamy-dusty-blue: #8e9aaf;
-  --dreamy-lavender: #cbc0d3;
-  --dreamy-blush: #efd3d7;
-  --dreamy-black: #000000;
-  --dreamy-orchid: #ebcee5; /* light lavender/pink */
+  --dusk-soft-background: #f7f0fa;
+  --dusk-light-lavender: #e8dcf4;
+  --dusk-lavender: #c9b4e6;
+  --dusk-medium-purple: #987abf;
+  --dusk-deep-purple: #6b5a8c; /* 5.4:1 on the soft background — safe for text */
+  --dusk-soft-pink: #f1b6d7;
+  --dusk-blush-pink: #e39bc2;
 
-  /* Tints + shades derived from the palette */
-  --dreamy-dusty-blue-deep: #434e66; /* 7.9:1 on canvas, 4.8:1 on lavender, 8.3:1 under white text */
-  --dreamy-dusty-blue-mid: #6b7791; /* large type + graphics only (4.2:1 on canvas) */
-  --dreamy-lavender-deep: #b8a9c4;
-  --dreamy-canvas: #fdfafc;
-  --dreamy-mist: #f8eff5; /* pale blush-lavender card */
-  --dreamy-ink: #1c1a21;
-  --dreamy-ink-soft: #4d4857; /* 5:1+ on every light ground in this theme */
+  /* Shades derived from the palette */
+  --dusk-night: #2d2440; /* nav, top of page heroes, footer */
+  --dusk-twilight: #4a3d66; /* feature band, CTA, bottom of page heroes */
+  --dusk-ink: #3f3358; /* headings + text on pink buttons (6.8:1, 5.3:1 on hover) */
+  --dusk-rose: #983a6c; /* eyebrow text: 6:1 on soft background, 5:1 on light lavender */
+  --dusk-text: #2c2536; /* body copy */
+  --dusk-text-soft: #5b5168; /* secondary copy: 5.6:1+ on every pale ground */
+  --dusk-card: #fdfbfe;
+  --dusk-chip: #dccbef; /* icon chips, between light lavender and lavender */
+
+  /* ---- Typography ---- */
+  --font-display: "Cormorant Garamond", "Cormorant", Garamond, Georgia, serif;
+  --font-body: "DM Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-script: "Allura", "Segoe Script", cursive;
+  /* Cormorant runs small for its point size, so the display steps are larger */
+  --fs-900: clamp(3rem, 2rem + 4.2vw, 5.6rem);
+  --fs-800: clamp(2.3rem, 1.75rem + 2.3vw, 3.5rem);
+  --fs-700: clamp(1.8rem, 1.5rem + 1.3vw, 2.5rem);
+  --fs-600: clamp(1.5rem, 1.35rem + 0.7vw, 1.9rem);
+  --fs-500: 1.125rem;
+  --lh-tight: 1.04;
+  --lh-normal: 1.7;
+
+  /* ---- Spacing: more editorial air between sections ---- */
+  --space-xl: clamp(3rem, 2.2rem + 2.5vw, 4.25rem);
+  --space-2xl: clamp(4.5rem, 3rem + 5vw, 7rem);
 
   /* ---- Brand roles ---- */
-  --primary: var(--dreamy-dusty-blue-deep);
-  --primary-hover: var(--dreamy-black);
+  --primary: var(--dusk-deep-purple);
+  --primary-hover: var(--dusk-ink);
   --on-primary: #ffffff;
-  --secondary: var(--dreamy-lavender);
-  --accent: var(--dreamy-dusty-blue);
+  --secondary: var(--dusk-lavender);
+  --accent: var(--dusk-soft-pink);
 
   /* ---- Page + surfaces ---- */
-  --background: var(--dreamy-canvas);
-  --surface: var(--dreamy-mist);
-  --section-alt: var(--dreamy-blush);
-  --section-alt-bg: linear-gradient(180deg, var(--dreamy-blush) 0%, var(--dreamy-orchid) 100%);
-  --hero-bg:
-    radial-gradient(ellipse 50% 65% at 92% 12%, rgba(239, 211, 215, 0.75), transparent 70%),
-    radial-gradient(ellipse 45% 55% at 4% 6%, rgba(235, 206, 229, 0.55), transparent 70%),
-    var(--background);
-  --border: rgba(67, 78, 102, 0.16);
-  --card-border: #e6d7e6;
-  --shadow-rgb: 67 78 102;
+  --background: var(--dusk-soft-background);
+  --surface: var(--dusk-card);
+  --section-alt: var(--dusk-light-lavender);
+  --section-alt-bg: linear-gradient(180deg, var(--dusk-light-lavender) 0%, #f1e8f8 100%);
+  --border: rgba(63, 51, 88, 0.14);
+  --card-border: #e6dbf1;
+  --shadow-rgb: 63 51 88;
 
   /* ---- Text ---- */
-  --text: var(--dreamy-ink);
-  --heading: var(--dreamy-black);
-  --muted-text: var(--dreamy-ink-soft);
-  --eyebrow: var(--dreamy-dusty-blue-deep);
-  --hero-accent: var(--dreamy-dusty-blue-mid);
-  --link: var(--dreamy-dusty-blue-deep);
-  --link-hover: var(--dreamy-black);
-  --selection-bg: var(--dreamy-orchid);
-  --selection-text: var(--dreamy-black);
-  --focus-ring: var(--dreamy-dusty-blue-mid); /* 4.2:1 on canvas, 4.7:1 on the black footer */
+  --text: var(--dusk-text);
+  --heading: var(--dusk-ink);
+  --muted-text: var(--dusk-text-soft);
+  --eyebrow: var(--dusk-rose);
+  --link: var(--dusk-deep-purple);
+  --link-hover: var(--dusk-rose);
+  --selection-bg: var(--dusk-soft-pink);
+  --selection-text: var(--dusk-ink);
+  --focus-ring: var(--dusk-medium-purple); /* 3:1+ on the pale grounds and on night */
 
   /* ---- Icons + decoration ---- */
-  --icon: var(--dreamy-dusty-blue-deep);
-  --icon-bg: linear-gradient(135deg, var(--dreamy-blush), var(--dreamy-lavender));
-  --marker: var(--dreamy-dusty-blue);
-  --bullet: var(--dreamy-dusty-blue);
-  --quote-mark: var(--dreamy-lavender);
-  --decor-primary: var(--dreamy-lavender);
-  --decor-secondary: var(--dreamy-dusty-blue);
-  --media-bg: var(--dreamy-black);
-  --media-text: #ffffff;
+  --icon: var(--dusk-ink);
+  --icon-bg: var(--dusk-chip);
+  --marker: var(--dusk-blush-pink);
+  --bullet: var(--dusk-medium-purple);
+  --quote-mark: var(--dusk-blush-pink);
+  --decor-primary: var(--dusk-soft-pink);
+  --decor-secondary: var(--dusk-lavender);
+  --media-bg: var(--dusk-night);
+  --media-text: var(--dusk-soft-background);
 
-  /* ---- Navigation ---- */
-  --nav-bg: rgba(253, 250, 252, 0.9);
-  --nav-border: rgba(203, 192, 211, 0.6);
-  --nav-link: var(--dreamy-ink-soft);
-  --nav-link-hover: var(--dreamy-black);
-  --nav-link-active: var(--dreamy-dusty-blue-deep);
-  --nav-indicator: var(--dreamy-dusty-blue);
-  --nav-icon: var(--dreamy-black);
-  --mobile-nav-bg: linear-gradient(180deg, var(--dreamy-canvas) 0%, #f5e9f2 100%);
-  --logo-primary: var(--dreamy-black);
-  --logo-accent: var(--dreamy-dusty-blue-mid);
+  /* ---- Navigation: a dark bar that runs straight into the hero ---- */
+  --nav-bg: rgba(45, 36, 64, 0.95);
+  --nav-border: rgba(247, 240, 250, 0.1);
+  --nav-link: rgba(247, 240, 250, 0.8);
+  --nav-link-hover: #ffffff;
+  --nav-link-active: var(--dusk-soft-pink);
+  --nav-indicator: var(--dusk-soft-pink);
+  --nav-icon: var(--dusk-soft-background);
+  --mobile-nav-bg: linear-gradient(180deg, var(--dusk-night) 0%, var(--dusk-twilight) 100%);
+  --mobile-nav-link: var(--dusk-soft-background);
+  --mobile-nav-link-active: var(--dusk-soft-pink);
+  --mobile-nav-border: rgba(247, 240, 250, 0.12);
+  --logo-primary: var(--dusk-soft-background);
+  --logo-accent: var(--dusk-soft-pink);
 
   /* ---- Buttons ---- */
-  --button-primary: var(--dreamy-dusty-blue-deep);
-  --button-primary-hover: var(--dreamy-black);
-  --button-primary-text: #ffffff;
-  --button-secondary: var(--dreamy-lavender);
-  --button-secondary-text: var(--dreamy-black);
-  --button-secondary-border: var(--dreamy-lavender);
-  --button-secondary-hover: var(--dreamy-lavender-deep);
-  --button-secondary-hover-text: var(--dreamy-black);
-  --button-secondary-hover-border: var(--dreamy-lavender-deep);
+  --button-primary: var(--dusk-soft-pink);
+  --button-primary-hover: var(--dusk-lavender);
+  --button-primary-text: var(--dusk-ink);
+  --button-secondary: transparent;
+  --button-secondary-text: var(--dusk-ink);
+  --button-secondary-border: var(--dusk-deep-purple);
+  --button-secondary-hover: var(--dusk-light-lavender);
+  --button-secondary-hover-text: var(--dusk-ink);
+  --button-secondary-hover-border: var(--dusk-deep-purple);
   --button-ghost: rgba(255, 255, 255, 0.6);
-  --button-ghost-text: var(--dreamy-black);
-  --button-ghost-border: rgba(67, 78, 102, 0.25);
+  --button-ghost-text: var(--dusk-ink);
+  --button-ghost-border: rgba(63, 51, 88, 0.22);
   --button-ghost-hover: #ffffff;
 
+  /*
+    ---- Page heroes: a mountain range at dusk ----
+    The photo sits under a plum-to-lavender wash, so it reads at roughly a
+    third to half strength and takes on the palette. lavender-dusk.css adds a
+    darker scrim on the text side only. Swap the url() to change the photo.
+  */
+  --hero-bg:
+    linear-gradient(
+      180deg,
+      rgba(45, 36, 64, 0.66) 0%,
+      rgba(74, 61, 102, 0.42) 42%,
+      rgba(107, 90, 140, 0.34) 70%,
+      rgba(74, 61, 102, 0.58) 100%
+    ),
+    url("../assets/lavender-dusk/hero-mountains.webp") center 64% / cover no-repeat,
+    var(--dusk-twilight);
+  --hero-edge: transparent; /* section edges overlap the hero photo instead */
+  --hero-heading: var(--dusk-soft-background);
+  --hero-text: var(--dusk-soft-background);
+  --hero-muted: rgba(247, 240, 250, 0.82);
+  --hero-eyebrow: var(--dusk-soft-pink);
+  --hero-accent: var(--dusk-lavender); /* 5.2:1 on twilight */
+  --hero-button-secondary: transparent;
+  --hero-button-secondary-text: var(--dusk-soft-background);
+  --hero-button-secondary-border: rgba(247, 240, 250, 0.55);
+  --hero-button-secondary-hover: rgba(247, 240, 250, 0.12);
+  --hero-button-secondary-hover-text: #ffffff;
+  --hero-button-secondary-hover-border: var(--dusk-soft-background);
+
   /* ---- Badges ---- */
-  --badge-text: var(--dreamy-black);
-  --badge-terracotta: var(--dreamy-blush);
-  --badge-sage: #dde1ea; /* dusty blue tint */
-  --badge-gold: var(--dreamy-orchid);
-  --badge-plum: var(--dreamy-lavender);
+  --badge-text: var(--dusk-text);
+  --badge-terracotta: #f6d3e6;
+  --badge-sage: var(--dusk-light-lavender);
+  --badge-gold: #f3e3f2;
+  --badge-plum: var(--dusk-chip);
 
   /* ---- Illustrated panels ---- */
-  --panel-base: #f4e9f1;
-  --panel-terracotta-wash: #f8e4e7;
-  --panel-terracotta-blob-1: #e6bfc7;
-  --panel-terracotta-blob-2: var(--dreamy-lavender);
-  --panel-sage-wash: #e4e8f0;
-  --panel-sage-blob-1: var(--dreamy-dusty-blue);
-  --panel-sage-blob-2: var(--dreamy-blush);
-  --panel-gold-wash: #f5e5f1;
-  --panel-gold-blob-1: #dcb8d4;
-  --panel-gold-blob-2: var(--dreamy-dusty-blue);
-  --panel-plum-wash: #ebe5f0;
-  --panel-plum-blob-1: var(--dreamy-dusty-blue-mid);
-  --panel-plum-blob-2: var(--dreamy-blush);
-  --panel-dots: rgba(67, 78, 102, 0.18);
+  --panel-base: #efe6f6;
+  --panel-terracotta-wash: #f9e5f0;
+  --panel-terracotta-blob-1: var(--dusk-soft-pink);
+  --panel-terracotta-blob-2: var(--dusk-lavender);
+  --panel-sage-wash: #ebe2f6;
+  --panel-sage-blob-1: var(--dusk-lavender);
+  --panel-sage-blob-2: var(--dusk-soft-pink);
+  --panel-gold-wash: #f7e8f3;
+  --panel-gold-blob-1: var(--dusk-blush-pink);
+  --panel-gold-blob-2: var(--dusk-medium-purple);
+  --panel-plum-wash: #e6dcf2;
+  --panel-plum-blob-1: var(--dusk-deep-purple);
+  --panel-plum-blob-2: var(--dusk-soft-pink);
+  --panel-dots: rgba(63, 51, 88, 0.16);
   --panel-icon-bg: rgba(255, 255, 255, 0.78);
 
-  /* ---- Contrast sections: a dusty blue band with black type (7.4:1) ---- */
-  --section-contrast: var(--dreamy-dusty-blue);
-  --section-contrast-heading: var(--dreamy-black);
-  --section-contrast-text: var(--dreamy-black);
-  --section-contrast-text-soft: rgba(0, 0, 0, 0.88);
-  --section-contrast-muted: rgba(0, 0, 0, 0.8);
-  --section-contrast-subtle: rgba(0, 0, 0, 0.72);
-  --section-contrast-eyebrow: var(--dreamy-black);
-  --section-contrast-subtitle: rgba(0, 0, 0, 0.8);
-  --section-contrast-card: rgba(255, 255, 255, 0.24);
-  --section-contrast-card-border: rgba(255, 255, 255, 0.45);
-  --section-contrast-icon: var(--dreamy-dusty-blue-deep);
-  --section-contrast-icon-bg: var(--dreamy-blush);
-  --step-number: var(--dreamy-black);
-  --step-number-text: #ffffff;
+  /* ---- Feature band (.section--ink): twilight with pale type ---- */
+  --section-contrast: var(--dusk-twilight);
+  --section-contrast-heading: var(--dusk-soft-background);
+  --section-contrast-text: var(--dusk-soft-background);
+  --section-contrast-text-soft: rgba(247, 240, 250, 0.88);
+  --section-contrast-muted: rgba(247, 240, 250, 0.8);
+  --section-contrast-subtle: rgba(247, 240, 250, 0.7); /* 5:1 on twilight */
+  --section-contrast-eyebrow: var(--dusk-soft-pink);
+  --section-contrast-subtitle: rgba(247, 240, 250, 0.82);
+  --section-contrast-card: rgba(247, 240, 250, 0.07);
+  --section-contrast-card-border: rgba(247, 240, 250, 0.14);
+  --section-contrast-icon: var(--dusk-soft-pink);
+  --section-contrast-icon-bg: rgba(241, 182, 215, 0.16);
+  --step-number: var(--dusk-soft-pink);
+  --step-number-text: var(--dusk-ink);
 
   /* ---- Forms ---- */
-  --input-bg: #ffffff;
-  --input-border: var(--dreamy-lavender-deep);
-  --input-focus: var(--dreamy-dusty-blue-deep);
-  --success-text: var(--dreamy-dusty-blue-deep);
+  --input-bg: var(--dusk-soft-background);
+  --input-border: #bfb0d4;
+  --input-focus: var(--dusk-medium-purple);
+  --success-text: var(--dusk-deep-purple);
 
-  /* ---- Closing call-to-action: lavender with an orchid glow ---- */
-  --cta-bg: var(--dreamy-lavender);
-  --cta-glow: radial-gradient(ellipse 55% 110% at 100% 0%, rgba(235, 206, 229, 0.95), transparent 70%);
-  --cta-heading: var(--dreamy-black);
-  --cta-text: var(--dreamy-black);
-  --cta-text-muted: rgba(0, 0, 0, 0.78);
-  --cta-eyebrow: var(--dreamy-dusty-blue-deep);
-  --cta-decor: #ffffff;
-  --cta-button: var(--dreamy-black);
-  --cta-button-hover: var(--dreamy-dusty-blue-deep);
-  --cta-button-text: #ffffff;
-  --cta-ghost-text: var(--dreamy-black);
-  --cta-ghost-border: rgba(0, 0, 0, 0.4);
-  --cta-ghost-hover: rgba(255, 255, 255, 0.45);
-
-  /* ---- Footer ---- */
-  --footer-bg: var(--dreamy-black);
-  --footer-text: rgba(240, 234, 244, 0.86);
-  --footer-text-muted: rgba(240, 234, 244, 0.72);
-  --footer-text-subtle: rgba(240, 234, 244, 0.6);
-  --footer-heading: var(--dreamy-dusty-blue);
-  --footer-link-hover: var(--dreamy-blush);
-  --footer-border: rgba(240, 234, 244, 0.14);
-  --footer-icon: var(--dreamy-blush);
-  --footer-icon-bg: rgba(203, 192, 211, 0.16);
-  --footer-icon-hover: var(--dreamy-black);
-  --footer-icon-hover-bg: var(--dreamy-blush);
-  --footer-logo-primary: #f7f1f6;
-  --footer-logo-accent: var(--dreamy-dusty-blue);
-}
-
-/* =========================================================================
-   Theme 2 — Earthy Feminine
-   Warm cream canvas, burgundy as the anchor (headings, buttons, links, CTA),
-   dusty rose + blush for softness, sage for icons, badges and the feature
-   band, soft espresso for body copy and the footer.
-   Dusty rose and sage are mid-tones (1.9:1 and 2.2:1 on cream), so they are
-   used as fills and decoration; where they appear as text or icon strokes,
-   a deepened shade of the same hue is used instead.
-   ========================================================================= */
-:root[data-theme="earthy"] {
-  /* Palette */
-  --earthy-burgundy: #6e2f3a;
-  --earthy-rose: #d9a3a8;
-  --earthy-blush: #f2d9d7;
-  --earthy-sage: #9daa91;
-  --earthy-cream: #f7f1ea;
-  --earthy-espresso: #3d342f;
-
-  /* Tints + shades derived from the palette */
-  --earthy-burgundy-deep: #58242e;
-  --earthy-rose-deep: #a9636c; /* large type only (4:1 on cream) */
-  --earthy-rose-soft: #e8c4c6;
-  --earthy-sage-deep: #56634d; /* small text + icons: 5.7:1 on cream, 4.8:1 on blush */
-  --earthy-sage-pale: #dfe4d9;
-  --earthy-warm-white: #fffcf8;
-  --earthy-espresso-soft: #6a5b53; /* 5.8:1 on cream, 4.8:1 on blush */
-
-  /* ---- Brand roles ---- */
-  --primary: var(--earthy-burgundy);
-  --primary-hover: var(--earthy-burgundy-deep);
-  --on-primary: var(--earthy-cream);
-  --secondary: var(--earthy-rose);
-  --accent: var(--earthy-sage);
-
-  /* ---- Page + surfaces ---- */
-  --background: var(--earthy-cream);
-  --surface: var(--earthy-warm-white);
-  --section-alt: var(--earthy-blush);
-  --section-alt-bg: var(--earthy-blush);
-  --hero-bg:
-    radial-gradient(ellipse 50% 65% at 92% 12%, rgba(242, 217, 215, 0.9), transparent 70%),
-    radial-gradient(ellipse 40% 50% at 2% 4%, rgba(157, 170, 145, 0.2), transparent 70%),
-    var(--background);
-  --border: rgba(61, 52, 47, 0.14);
-  --card-border: rgba(61, 52, 47, 0.08);
-  --shadow-rgb: 61 52 47;
-
-  /* ---- Text ---- */
-  --text: var(--earthy-espresso);
-  --heading: var(--earthy-burgundy); /* 8.8:1 on cream */
-  --muted-text: var(--earthy-espresso-soft);
-  --eyebrow: var(--earthy-sage-deep);
-  --hero-accent: var(--earthy-rose-deep);
-  --link: var(--earthy-burgundy);
-  --link-hover: var(--earthy-burgundy-deep);
-  --selection-bg: var(--earthy-rose);
-  --selection-text: var(--earthy-espresso);
-  --focus-ring: #7f8c73; /* mid sage: 3:1+ on cream and on espresso */
-
-  /* ---- Icons + decoration ---- */
-  --icon: var(--earthy-sage-deep);
-  --icon-bg: var(--earthy-sage-pale);
-  --marker: var(--earthy-rose);
-  --bullet: var(--earthy-sage);
-  --quote-mark: var(--earthy-rose);
-  --decor-primary: var(--earthy-rose);
-  --decor-secondary: var(--earthy-sage);
-  --media-bg: var(--earthy-espresso);
-  --media-text: var(--earthy-cream);
-
-  /* ---- Navigation ---- */
-  --nav-bg: rgba(247, 241, 234, 0.92);
-  --nav-border: rgba(61, 52, 47, 0.12);
-  --nav-link: var(--earthy-espresso-soft);
-  --nav-link-hover: var(--earthy-espresso);
-  --nav-link-active: var(--earthy-burgundy);
-  --nav-indicator: var(--earthy-rose);
-  --nav-icon: var(--earthy-burgundy);
-  --mobile-nav-bg: linear-gradient(180deg, var(--earthy-cream) 0%, #f4e3df 100%);
-  --logo-primary: var(--earthy-espresso);
-  --logo-accent: var(--earthy-burgundy);
-
-  /* ---- Buttons ---- */
-  --button-primary: var(--earthy-burgundy);
-  --button-primary-hover: var(--earthy-burgundy-deep);
-  --button-primary-text: var(--earthy-cream);
-  --button-secondary: transparent;
-  --button-secondary-text: var(--earthy-burgundy);
-  --button-secondary-border: var(--earthy-burgundy);
-  --button-secondary-hover: var(--earthy-rose-soft);
-  --button-secondary-hover-text: var(--earthy-burgundy-deep);
-  --button-secondary-hover-border: var(--earthy-burgundy);
-  --button-ghost: rgba(255, 252, 248, 0.6);
-  --button-ghost-text: var(--earthy-espresso);
-  --button-ghost-border: rgba(61, 52, 47, 0.2);
-  --button-ghost-hover: var(--earthy-warm-white);
-
-  /* ---- Badges ---- */
-  --badge-text: var(--earthy-espresso);
-  --badge-terracotta: #ecc9cb;
-  --badge-sage: #d6ddcf;
-  --badge-gold: var(--earthy-blush);
-  --badge-plum: #e6d1d5;
-
-  /* ---- Illustrated panels ---- */
-  --panel-base: #f1e6de;
-  --panel-terracotta-wash: #f5e0de;
-  --panel-terracotta-blob-1: var(--earthy-rose);
-  --panel-terracotta-blob-2: #b87a81;
-  --panel-sage-wash: #e5eadf;
-  --panel-sage-blob-1: var(--earthy-sage);
-  --panel-sage-blob-2: var(--earthy-rose);
-  --panel-gold-wash: #f6e5e1;
-  --panel-gold-blob-1: #e6bfc0;
-  --panel-gold-blob-2: var(--earthy-sage);
-  --panel-plum-wash: #eedcdf;
-  --panel-plum-blob-1: var(--earthy-burgundy);
-  --panel-plum-blob-2: var(--earthy-rose);
-  --panel-dots: rgba(61, 52, 47, 0.16);
-  --panel-icon-bg: rgba(255, 252, 248, 0.78);
-
-  /* ---- Contrast sections: a sage band with near-espresso type (5:1+) ---- */
-  --section-contrast: var(--earthy-sage);
-  --section-contrast-heading: #5a2430; /* deep burgundy, 5:1 on sage */
-  --section-contrast-text: #241e1b;
-  --section-contrast-text-soft: #2c2522;
-  --section-contrast-muted: #332b27;
-  --section-contrast-subtle: var(--earthy-espresso);
-  --section-contrast-eyebrow: #5a2430;
-  --section-contrast-subtitle: #2c2522;
-  --section-contrast-card: rgba(255, 252, 248, 0.3);
-  --section-contrast-card-border: rgba(255, 252, 248, 0.5);
-  --section-contrast-icon: var(--earthy-burgundy);
-  --section-contrast-icon-bg: var(--earthy-blush);
-  --step-number: var(--earthy-burgundy);
-  --step-number-text: var(--earthy-cream);
-
-  /* ---- Forms ---- */
-  --input-bg: var(--earthy-cream);
-  --input-border: #c4b3a8;
-  --input-focus: var(--earthy-burgundy);
-  --success-text: var(--earthy-sage-deep);
-
-  /* ---- Closing call-to-action: burgundy with a dusty rose glow ---- */
-  --cta-bg: var(--earthy-burgundy);
-  --cta-glow: radial-gradient(ellipse 55% 110% at 100% 0%, rgba(217, 163, 168, 0.3), transparent 70%);
-  --cta-heading: var(--earthy-cream);
-  --cta-text: var(--earthy-cream);
-  --cta-text-muted: rgba(247, 241, 234, 0.84);
-  --cta-eyebrow: var(--earthy-rose); /* 4.6:1 on burgundy */
-  --cta-decor: var(--earthy-rose);
-  --cta-button: var(--earthy-blush);
-  --cta-button-hover: var(--earthy-rose);
-  --cta-button-text: var(--earthy-burgundy);
-  --cta-ghost-text: var(--earthy-cream);
-  --cta-ghost-border: rgba(247, 241, 234, 0.5);
-  --cta-ghost-hover: rgba(247, 241, 234, 0.12);
+  /* ---- Closing call-to-action: twilight with a pink dusk glow ---- */
+  --cta-bg: var(--dusk-twilight);
+  --cta-glow:
+    radial-gradient(ellipse 40% 60% at 88% 52%, rgba(241, 182, 215, 0.2), transparent 70%),
+    linear-gradient(180deg, transparent 35%, rgba(45, 36, 64, 0.55) 100%);
+  --cta-heading: var(--dusk-soft-background);
+  --cta-text: var(--dusk-soft-background);
+  --cta-text-muted: rgba(247, 240, 250, 0.84);
+  --cta-eyebrow: var(--dusk-soft-pink); /* 5.8:1 on twilight */
+  --cta-decor: var(--dusk-soft-pink);
+  --cta-button: var(--dusk-soft-pink);
+  --cta-button-hover: var(--dusk-lavender);
+  --cta-button-text: var(--dusk-ink);
+  --cta-ghost-text: var(--dusk-soft-background);
+  --cta-ghost-border: rgba(247, 240, 250, 0.5);
+  --cta-ghost-hover: rgba(247, 240, 250, 0.12);
 
   /* ---- Footer ---- */
-  --footer-bg: var(--earthy-espresso);
-  --footer-text: rgba(247, 241, 234, 0.86);
-  --footer-text-muted: rgba(247, 241, 234, 0.72);
-  --footer-text-subtle: rgba(247, 241, 234, 0.62);
-  --footer-heading: var(--earthy-rose); /* 5.6:1 on espresso */
-  --footer-link-hover: var(--earthy-rose);
-  --footer-border: rgba(247, 241, 234, 0.14);
-  --footer-icon: var(--earthy-cream);
-  --footer-icon-bg: rgba(247, 241, 234, 0.1);
-  --footer-icon-hover: var(--earthy-espresso);
-  --footer-icon-hover-bg: var(--earthy-rose);
-  --footer-logo-primary: var(--earthy-cream);
-  --footer-logo-accent: var(--earthy-rose);
+  --footer-bg: var(--dusk-night);
+  --footer-text: rgba(247, 240, 250, 0.85);
+  --footer-text-muted: rgba(247, 240, 250, 0.7);
+  --footer-text-subtle: rgba(247, 240, 250, 0.6);
+  --footer-heading: var(--dusk-lavender);
+  --footer-link-hover: var(--dusk-soft-pink);
+  --footer-border: rgba(247, 240, 250, 0.12);
+  --footer-icon: var(--dusk-light-lavender);
+  --footer-icon-bg: rgba(201, 180, 230, 0.14);
+  --footer-icon-hover: var(--dusk-night);
+  --footer-icon-hover-bg: var(--dusk-soft-pink);
+  --footer-logo-primary: var(--dusk-soft-background);
+  --footer-logo-accent: var(--dusk-soft-pink);
 }

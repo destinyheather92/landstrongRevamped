@@ -25,7 +25,7 @@ export default function Resources() {
 
   return (
     <>
-      <section className="section resources-hero">
+      <section className="section resources-hero page-hero">
         <div className="container resources-hero__inner">
           <p className="eyebrow">Resources</p>
           <h1>Small tools for hard days.</h1>

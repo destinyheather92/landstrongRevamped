@@ -1,5 +1,6 @@
 @import "./tokens.css";
 @import "./themes.css";
+@import "./lavender-dusk.css";
 
 /* ---------- Reset ---------- */
 *,
@@ -168,6 +169,30 @@ ol {
 
 .section--alt {
   background: var(--section-alt-bg);
+}
+
+/*
+  The opening section of each page. Some themes paint it as a dark band, so it
+  re-points the text and secondary-button tokens its contents use.
+*/
+.page-hero {
+  background: var(--hero-bg);
+  color: var(--text);
+  --heading: var(--hero-heading);
+  --text: var(--hero-text);
+  --muted-text: var(--hero-muted);
+  --eyebrow: var(--hero-eyebrow);
+  --button-secondary: var(--hero-button-secondary);
+  --button-secondary-text: var(--hero-button-secondary-text);
+  --button-secondary-border: var(--hero-button-secondary-border);
+  --button-secondary-hover: var(--hero-button-secondary-hover);
+  --button-secondary-hover-text: var(--hero-button-secondary-hover-text);
+  --button-secondary-hover-border: var(--hero-button-secondary-hover-border);
+}
+
+/* the strip above a wave divider's curve would otherwise show the page background */
+.page-hero + .divider {
+  background: var(--hero-edge);
 }
 
 .section--ink {

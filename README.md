@@ -60,12 +60,25 @@ Components only use the semantic color tokens (`--background`, `--primary`,
 
 #### Temporary: color theme comparison
 
-A neutral bar above the navbar switches the whole site between two candidate
-palettes — **Theme 1 — Dreamy Princess** and **Theme 2 — Earthy Feminine** — defined in
-`src/styles/themes.css`. Only colors change; layout, copy and imagery stay identical.
-Add `?theme=dreamy` or `?theme=earthy` to any URL to open a specific palette.
+A neutral bar above the navbar switches the whole site between the **Current design**
+and **Lavender Dusk**, a candidate palette defined in `src/styles/themes.css`. Only
+colors change; layout, copy and imagery stay identical. Add `?theme=lavender-dusk` or
+`?theme=current` to any URL to open a specific look.
 
-- **Adopt a palette:** copy its block's declarations from `themes.css` into the
+- **Adjust a shade or font:** edit the palette and typography variables at the top of
+  the Lavender Dusk block in `themes.css` (`--dusk-soft-pink`, `--font-display`, …).
+- **Lavender Dusk's design layer** — the photographic hero, torn-paper and mountain-ridge
+  section edges, editorial cards and quote band — lives in `src/styles/lavender-dusk.css`,
+  scoped so it only applies while that theme is active. Its shapes and hero photo are in
+  `src/assets/lavender-dusk/`.
+- **Brand mountain watermark:** set `--brand-mountain` at the top of
+  `lavender-dusk.css` to the mountain asset's `url()` and it appears, faded, behind the
+  feature sections, the closing CTA and the footer.
+- **Hero photo:** "Hazy mountain layers at sunrise" by
+  [Daniil Silantev](https://unsplash.com/photos/l9XWp3S9yuk) on Unsplash (Unsplash
+  License — free for commercial use, no attribution required). Swap it via the `url()`
+  in the `--hero-bg` token.
+- **Adopt the palette:** copy the block's declarations from `themes.css` into the
   theme-token section of `tokens.css`, then remove the comparison (below).
 - **Remove the comparison:** delete `<ThemeSwitcher />` from
   `src/components/layout/Layout.tsx`, the `src/components/theme/` folder,

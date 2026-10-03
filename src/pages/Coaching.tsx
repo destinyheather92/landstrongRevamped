@@ -20,7 +20,7 @@ export default function Coaching() {
 
   return (
     <>
-      <section className="section coaching-hero">
+      <section className="section coaching-hero page-hero">
         <div className="container coaching-hero__inner">
           <p className="eyebrow">Coaching</p>
           <h1>This isn't a productivity hack. It's a way back to yourself.</h1>

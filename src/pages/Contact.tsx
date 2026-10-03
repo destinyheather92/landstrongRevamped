@@ -41,7 +41,7 @@ export default function Contact() {
 
   return (
     <>
-      <section className="section contact-hero">
+      <section className="section contact-hero page-hero">
         <div className="container contact-hero__inner">
           <p className="eyebrow">Contact</p>
           <h1>Say hello. We'll take it from there.</h1>
